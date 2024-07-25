@@ -13,22 +13,21 @@ export default function Program() {
     useEffect(() => {
         (async () => {
             const result = await moviesAPI.getAll();
-            setMovies(result);
+            setMovies(result.reverse());
             setLoading(false);
         })()
     }, []);
 
     return (
         <div className="program">
-            <h1>Today's movies</h1>
-            <h2>Make your reservation</h2>
+            <h1>Make your reservation</h1>
             {loading ? (
                 <Spinner />
             ) : (
                 movies.length > 0
                     ? movies.map(movie => <Movie key={movie._id} {...movie} />)
                     : <div className='msg'>
-                        <h1>There are no movies yet.</h1>
+                        <h2>There are no movies yet.</h2>
                     </div>
             )}
         </div>
