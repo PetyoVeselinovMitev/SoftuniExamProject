@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './AdminPanel.css';
 
 export default function AdminPanel() {
@@ -55,7 +56,9 @@ export default function AdminPanel() {
             <div className='msg'>
                 <h2>There are no movies yet.</h2>
             </div>
-            <button className="add-movie-btn">Add Movie</button>
+            <div className="add-movie-btn">
+                <Link to="/admin/create">Add Movie</Link>
+            </div>
         </div>
     );
 }
