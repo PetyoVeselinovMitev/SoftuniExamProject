@@ -44,3 +44,9 @@
 .card {
     margin: 5px
 }
+
+.msg {
+    display: block;
+    text-align: center;
+    margin: 20px 0;
+}

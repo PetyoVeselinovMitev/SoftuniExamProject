@@ -13,6 +13,9 @@ export default function UserReservations() {
                     <button className="delete-button">Delete</button>
                 </div>
             </div>
+            <div className='msg'>
+                <h2>There are no movies yet.</h2>
+            </div>
         </div>
     )
 }

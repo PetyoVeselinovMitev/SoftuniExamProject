@@ -50,9 +50,11 @@ export default function AdminPanel() {
                             </div>
                         </td>
                     </tr>
-
                 </tbody>
             </table>
+            <div className='msg'>
+                <h2>There are no movies yet.</h2>
+            </div>
             <button className="add-movie-btn">Add Movie</button>
         </div>
     );

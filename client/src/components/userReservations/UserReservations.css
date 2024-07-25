@@ -53,3 +53,9 @@
 	background-color: #f44336;
 	color: white;
 }
+
+.msg {
+    display: block;
+    text-align: center;
+    margin: 20px 0;
+}
