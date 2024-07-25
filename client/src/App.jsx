@@ -10,22 +10,22 @@ import Reservation from "./components/reservation/Reservation";
 import UserReservations from "./components/userReservations/UserReservations";
 
 function App() {
-  return (
-    <>
-      <Header />
+    return (
+        <>
+            <Header />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/program" element={<Program />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/admin" element={<AdminPanel />} />
-        <Route path="/program/movie/time" element={<Reservation />} />
-        <Route path="/user/reservations" element={<UserReservations />} />
-      </Routes>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/program" element={<Program />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/admin" element={<AdminPanel />} />
+                <Route path="/program/movie/time" element={<Reservation />} />
+                <Route path="/user/reservations" element={<UserReservations />} />
+            </Routes>
 
-    </>
-  );
+        </>
+    );
 }
 
 export default App;
