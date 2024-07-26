@@ -14,3 +14,17 @@ export function useGetAllMovies(setLoading) {
 
     return [movies, setMovies, setLoading]
 }
+
+export function useGetRecentMovies(setLoading) {
+    const [movies, setMovies] = useState([]);
+
+    useEffect(() => {
+        (async () => {
+            const result = await moviesAPI.getAll();
+            setMovies(result.reverse().slice(0, 3));
+            setLoading(false);
+        })()
+    }, [])
+
+    return [movies, setMovies]
+}

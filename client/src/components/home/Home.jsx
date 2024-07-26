@@ -1,21 +1,14 @@
-import { useEffect, useState } from 'react';
 import './Home.css';
 
-import moviesAPI from '../../api/moviesApi';
 import RecentMovie from './recentMovie/RecentMovie';
 import Spinner from '../spinner/Spinner';
 
-export default function Home() {
-    const [recentMovies, setRecentMovies] = useState([]);
-    const [loading, setLoading] = useState(true);
+import { useGetRecentMovies } from '../../hooks/useMovies';
+import { useState } from 'react';
 
-    useEffect(() => {
-        (async () => {
-            const result = await moviesAPI.getAll();
-            setRecentMovies(result.reverse().slice(0, 3));
-            setLoading(false);
-        })()
-    }, [])
+export default function Home() {
+    const [loading, setLoading] = useState(true);
+    const [recentMovies] = useGetRecentMovies(setLoading);
 
     return (
         <div className="home">
