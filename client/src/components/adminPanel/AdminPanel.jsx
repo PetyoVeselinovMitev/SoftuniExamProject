@@ -1,22 +1,15 @@
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { useGetAllMovies } from '../../hooks/useMovies';
 import './AdminPanel.css';
 
-import moviesAPI from '../../api/moviesApi';
 import Spinner from '../spinner/Spinner';
 import MovieRow from './movieRow/MovieRow';
 
 export default function AdminPanel() {
-    const [movies, setMovies] = useState({});
     const [loading, setLoading] = useState(true);
+    const [movies] = useGetAllMovies(setLoading);
 
-    useEffect(() => {
-        (async () => {
-            const result = await moviesAPI.getAll();
-            setMovies(result.reverse());
-            setLoading(false);
-        })()
-    }, [])
 
     return (
         <div className="movie-table-container">
