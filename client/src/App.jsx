@@ -20,6 +20,7 @@ function App() {
     }
 
     const contextData = {
+        name: authState.name,
         userId: authState.userId,
         email: authState.email,
         accessToken: authState.token,
