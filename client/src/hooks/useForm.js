@@ -1,23 +1,23 @@
 import { useState } from 'react';
 
 export function useForm(initialState, submitCallback) {
-    const [state, setState] = useState(initialState);
+    const [values, setState] = useState(initialState);
 
     const changeHandler = (e) => {
-        setState(state => ({
-            ...state,
+        setState(values => ({
+            ...values,
             [e.target.name]: e.target.value
         }))
     }
 
-    const submitHandler = () => {
+    const submitHandler = (e) => {
         e.preventDefault();
 
-        submitCallback(state);
+        submitCallback(values);
     }
 
     return {
-        state,
+        values,
         changeHandler,
         submitHandler
     }
