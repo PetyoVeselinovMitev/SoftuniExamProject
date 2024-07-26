@@ -6,11 +6,11 @@ export const useUserLogin = () => {
     const {changeAuthState} = useContext(AuthContext);
 
     const loginHandler = async (email, password) => {
-        const result = await login(email, password);
+        const {password , ...authData} = await login(email, password);
         
-        changeAuthState(result);
+        changeAuthState(authData);
         
-        return result;
+        return authData;
     };
 
     return loginHandler;
