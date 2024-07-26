@@ -1,22 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './Program.css';
-import moviesAPI from '../../api/moviesApi';
+
 import Spinner from '../spinner/Spinner';
 import Movie from './movie/Movie';
 
+import { useGetAllMovies } from '../../hooks/useMovies';
+
 export default function Program() {
-    const [movies, setMovies] = useState({});
     const [loading, setLoading] = useState(true);
-
-
-
-    useEffect(() => {
-        (async () => {
-            const result = await moviesAPI.getAll();
-            setMovies(result.reverse());
-            setLoading(false);
-        })()
-    }, []);
+    const [movies] = useGetAllMovies(setLoading);
 
     return (
         <div className="program">
