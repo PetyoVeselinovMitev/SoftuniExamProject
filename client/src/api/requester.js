@@ -16,8 +16,14 @@ async function requester(method, url, data) {
     const response = await fetch(url, options);
     const result = await response.json();
 
+    if (!response.ok) {
+        console.log(response);
+        throw result;
+    };
+    
+
     return result;
-};
+}
 
 export const get = requester.bind(null, 'GET');
 export const post = requester.bind(null, 'POST');
