@@ -1351,19 +1351,27 @@
             },
             "8f414b4f-ab39-4d36-bedb-2ad69da9c830": {
                 _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
-                title: "Insidious: The Last Key",
-                imageUrl: "https://m.media-amazon.com/images/M/MV5BOWFlNzViNWMtMjBlMS00NGNkLTk5ZTktNjExODQyYzEzZDBjXkEyXkFqcGdeQXVyMTA3MDk2NDg2._V1_.jpg",
-                summary: "Elise Rainier, who claims to see ghosts, is haunted by her past as she is drawn back to her old ghostly home. However, things change after her family is pitted against an evil force.",
-                _createdOn: 1613551344360,
+                title: "Tarot",
+                imageUrl: "https://m.media-amazon.com/images/M/MV5BODY0OTY1ZTktYTE4OC00MTFjLWE1YjAtZjMxNzk3MjYzMGJkXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX1000_.jpg",
+                summary: "Friends unwittingly unleash an unspeakable evil trapped within a cursed deck of tarot cards. One by one, they come face to face with fate, racing against death to escape the future foretold in their readings.",
+                _createdOn: 1613551279013,
                 _id: "8f414b4f-ab39-4d36-bedb-2ad69da9c830"
             },
             "985d9eab-ad2e-4622-a5c8-116261fb1fd2": {
                 _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
-                title: "Insidious: The Last Key",
-                imageUrl: "https://m.media-amazon.com/images/M/MV5BOWFlNzViNWMtMjBlMS00NGNkLTk5ZTktNjExODQyYzEzZDBjXkEyXkFqcGdeQXVyMTA3MDk2NDg2._V1_.jpg",
-                summary: "Elise Rainier, who claims to see ghosts, is haunted by her past as she is drawn back to her old ghostly home. However, things change after her family is pitted against an evil force.",
-                _createdOn: 1613551388703,
+                title: "Evil Dead Rise",
+                imageUrl: "https://m.media-amazon.com/images/M/MV5BMmZiN2VmMjktZDE5OC00ZWRmLWFlMmEtYWViMTY4NjM3ZmNkXkEyXkFqcGdeQXVyMTI2MTc2ODM3._V1_.jpg",
+                summary: "A reunion between two estranged sisters gets cut short by the rise of flesh-possessing demons, thrusting them into a primal battle for survival as they face the most nightmarish version of family imaginable.",
+                _createdOn: 1613551279014,
                 _id: "985d9eab-ad2e-4622-a5c8-116261fb1fd2"
+            },
+            "985d9eab-ad2e-4622-a5c8-36123dasd23f": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                title: "The Curse of La Llorona",
+                imageUrl: "https://m.media-amazon.com/images/I/81N9rjYz-QL._AC_UF894,1000_QL80_.jpg",
+                summary: "When Patricia is found endangering the lives of her sons, Anna puts her behind bars. However, when Anna's own children are endangered, she suspects that there is more than human involvement at play.",
+                _createdOn: 1613551279014,
+                _id: "985d9eab-ad2e-4622-a5c8-36123dasd23f"
             },
         },
 
