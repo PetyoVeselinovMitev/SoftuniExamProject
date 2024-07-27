@@ -11,6 +11,7 @@ import AdminPanel from "./components/adminPanel/AdminPanel";
 import Reservation from "./components/reservation/Reservation";
 import UserReservations from "./components/userReservations/UserReservations";
 import CreateMovie from "./components/adminPanel/createMovie/CreateMovie";
+import Logout from "./components/logout/Logout";
 
 function App() {
     const [authState, setAuthState] = useState({});
@@ -19,13 +20,18 @@ function App() {
         setAuthState(state);
     }
 
+    const clientLogout = () => {
+        setAuthState({});
+    }
+
     const contextData = {
         name: authState.name,
         userId: authState.userId,
         email: authState.email,
         accessToken: authState.token,
         isAuthenticated: !!authState.email,
-        changeAuthState
+        changeAuthState,
+        clientLogout
     }
     return (
         <>
@@ -37,6 +43,7 @@ function App() {
                     <Route path="/program" element={<Program />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
+                    <Route path="/logout" element={<Logout />} />
                     <Route path="/admin" element={<AdminPanel />} />
                     <Route path="/program/movie/time" element={<Reservation />} />
                     <Route path="/user/reservations" element={<UserReservations />} />

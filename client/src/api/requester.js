@@ -1,17 +1,22 @@
 async function requester(method, url, data) {
     const options = {};
 
-    if (method !== 'GET') {
-        options.method = method;
-    };
-
-    if (data) {
-        options.headers = {
-            'Content-Type': 'application/json'
+    if (method == 'GET' && data) {
+        options.headers = data.accessToken
+    } else {
+        if (method !== 'GET') {
+            options.method = method;
         };
 
-        options.body = JSON.stringify(data);
-    };
+        if (data) {
+            options.headers = {
+                'Content-Type': 'application/json'
+            };
+
+            options.body = JSON.stringify(data);
+        };
+    }
+
 
     const response = await fetch(url, options);
     const result = await response.json();
@@ -20,7 +25,7 @@ async function requester(method, url, data) {
         console.log(response);
         throw result;
     };
-    
+
 
     return result;
 }
