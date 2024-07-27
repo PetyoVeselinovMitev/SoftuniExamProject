@@ -20,8 +20,8 @@ export function useGetRecentMovies(setLoading) {
 
     useEffect(() => {
         (async () => {
-            const result = await moviesAPI.getAll();
-            setMovies(result.reverse().slice(0, 3));
+            const result = await moviesAPI.getRecent();
+            setMovies(result);
             setLoading(false);
         })()
     }, [])
