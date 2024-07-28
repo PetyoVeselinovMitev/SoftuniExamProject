@@ -30,6 +30,7 @@ function App() {
         email: authState.email,
         accessToken: authState.token,
         isAuthenticated: !!authState.email,
+        isAdmin: authState.email === 'cinema@admin.bg',
         changeAuthState,
         clientLogout
     }

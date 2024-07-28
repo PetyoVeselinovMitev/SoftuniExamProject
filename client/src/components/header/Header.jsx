@@ -5,7 +5,7 @@ import './header.css';
 import { AuthContext } from '../../contexts/AuthContext';
 
 const Header = () => {
-	const { isAuthenticated, name, email } = useContext(AuthContext);
+	const { isAuthenticated, name, email, isAdmin } = useContext(AuthContext);
 	return (
 		<header className="header">
 			<nav className="navbar">
@@ -25,7 +25,7 @@ const Header = () => {
 				{isAuthenticated
 					&& (<div className="user-section">
 						<span>Welcome, {name}!</span>
-						{email === "cinema@admin.bg" 
+						{isAdmin
 						? <li><Link to="/admin">Admin panel</Link></li>
 						: <li><Link to="/user/reservations">My reservations</Link></li>
 						}
