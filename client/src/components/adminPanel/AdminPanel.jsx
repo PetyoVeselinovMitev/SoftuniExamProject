@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import { useGetAllMovies } from '../../hooks/useMovies';
+import { useGetAllMoviesWithShowtimes } from '../../hooks/useMovies';
 import './AdminPanel.css';
 
 import Spinner from '../spinner/Spinner';
@@ -8,7 +8,7 @@ import MovieRow from './movieRow/MovieRow';
 
 export default function AdminPanel() {
     const [loading, setLoading] = useState(true);
-    const [movies] = useGetAllMovies(setLoading);
+    const [movies] = useGetAllMoviesWithShowtimes(setLoading);
 
 
     return (

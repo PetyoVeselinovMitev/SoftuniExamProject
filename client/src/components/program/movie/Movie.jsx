@@ -1,17 +1,20 @@
-export default function Movie({
-    title,
-    summary,
-    imageUrl,
-    times
-}) {
+export default function Movie(movie) {
+    const times = [];
+
+    movie.movie.map(showtime => {
+        times.push(showtime.time);
+    })
+
+    console.log(movie.movie[0].movie);
+
     return (
         <div className="movie-card">
         <div className="thumbnail">
-            <img src={imageUrl} />
+            <img src={movie.movie[0].movie.imageUrl} />
         </div>
         <div className="movie-info">
-            <h3>{title}</h3>
-            <p>{summary}</p>
+            <h3>{movie.movie[0].movie.title}</h3>
+            <p>{movie.movie[0].movie.summary}</p>
             <div className="movie-times">
                 {times.map((time, index) => (
                     <button key={index} className="time-btn">{time}</button>
