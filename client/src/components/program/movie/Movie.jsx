@@ -4,9 +4,7 @@ export default function Movie(movie) {
     movie.movie.map(showtime => {
         times.push(showtime.time);
     })
-
-    console.log(movie.movie[0].movie);
-
+    
     return (
         <div className="movie-card">
         <div className="thumbnail">

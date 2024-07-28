@@ -9,8 +9,7 @@ import MovieRow from './movieRow/MovieRow';
 export default function AdminPanel() {
     const [loading, setLoading] = useState(true);
     const [movies] = useGetAllMoviesWithShowtimes(setLoading);
-
-
+    
     return (
         <div className="movie-table-container">
             {loading ? (
@@ -29,9 +28,7 @@ export default function AdminPanel() {
                             </tr>
                         </thead>
                         <tbody>
-                            {movies.length > 0 && movies.map(movie => (
-                                <MovieRow key={movie._id} {...movie} />
-                            ))}
+                            {movies.length > 0 && movies.map(movie => <MovieRow key={movie[0]._movieId} movie={movie} />)}
                         </tbody>
                     </table>
                 </>
