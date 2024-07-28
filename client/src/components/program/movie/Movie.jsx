@@ -3,6 +3,7 @@ import { AuthContext } from "../../../contexts/AuthContext";
 
 export default function Movie(movie) {
     const { isAdmin } = useContext(AuthContext);
+    console.log(isAdmin);
     const times = [];
 
     movie.movie.map(showtime => {
@@ -22,11 +23,10 @@ export default function Movie(movie) {
                         ? times.map((time, index) => (
                             <button disabled key={index} className="time-btn">{time}</button>
                         ))
-                        :times.map((time, index) => (
-                            <button disabled key={index} className="time-btn">{time}</button>
+                        : times.map((time, index) => (
+                            <button key={index} className="time-btn">{time}</button>
                         ))
-            }
-
+                    }
                 </div>
             </div>
         </div>
