@@ -6,4 +6,4 @@ export const login =  (email, password) => post(`${BASE_URL}/login`, { email, pa
 
 export const register = (name, email, password) => post(`${BASE_URL}/register`, { email, password, name });
 
-export const serverLogout = (accessToken) => post(`${BASE_URL}/logout`, {accessToken});
+export const serverLogout = (accessToken) => post(`${BASE_URL}/logout`, null, accessToken);

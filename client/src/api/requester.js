@@ -1,22 +1,23 @@
-async function requester(method, url, data) {
+async function requester(method, url, data, accessToken) {
     const options = {};
 
-    if (method == 'GET' && data) {
-        options.headers = data.accessToken
-    } else {
-        if (method !== 'GET') {
-            options.method = method;
+    if (method !== 'GET') {
+        options.method = method;
+    };
+
+    if (accessToken) {
+        options.headers = {
+            'X-Authorization': accessToken
+        }
+    };
+
+    if (data) {
+        options.headers = {
+            'Content-Type': 'application/json'
         };
 
-        if (data) {
-            options.headers = {
-                'Content-Type': 'application/json'
-            };
-
-            options.body = JSON.stringify(data);
-        };
-    }
-
+        options.body = JSON.stringify(data);
+    };
 
     const response = await fetch(url, options);
     const result = await response.json();
