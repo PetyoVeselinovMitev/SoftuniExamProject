@@ -16,7 +16,7 @@ export default function Program() {
                 <Spinner />
             ) : (
                 movies.length > 0
-                    ? movies.map(movie => <Movie key={movie[0]._movieId} movie={movie} />)
+                    ? movies.reverse().map(movie => <Movie key={movie[0]._movieId} movie={movie} />)
                     : <div className='msg'>
                         <h2>There are no movies yet.</h2>
                     </div>
