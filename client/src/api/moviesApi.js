@@ -21,7 +21,11 @@ const getShowtimeWithMovie = async (movieId) => {
 }
 
 const postNewMovie = async (title, summary, imageUrl, showtimes, accessToken) => {
-    console.log(title, summary, imageUrl, showtimes, accessToken);
+    const newMovie = await requester.post(BASE_URL + '/movies', { title, summary, imageUrl }, accessToken);
+    showtimes.split(', ').map(showtime => {
+        requester.post(BASE_URL + '/showtimes', { _movieId: newMovie._id, time: showtime }, accessToken);
+    })
+    return;
 }
 
 const moviesAPI = {

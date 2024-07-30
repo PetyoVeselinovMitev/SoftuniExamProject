@@ -3,7 +3,6 @@ import { AuthContext } from "../../../contexts/AuthContext";
 
 export default function Movie(movie) {
     const { isAdmin } = useContext(AuthContext);
-    console.log(isAdmin);
     const times = [];
 
     movie.movie.map(showtime => {

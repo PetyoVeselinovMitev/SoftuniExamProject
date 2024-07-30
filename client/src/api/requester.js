@@ -12,10 +12,13 @@ async function requester(method, url, data, accessToken) {
     };
 
     if (data) {
-        options.headers = {
-            'Content-Type': 'application/json'
-        };
-
+        if(options.headers) {
+            options.headers['Content-Type'] = 'application/json';
+        } else {
+            options.headers = {
+                'Content-Type': 'application/json'
+            }
+        }
         options.body = JSON.stringify(data);
     };
 
