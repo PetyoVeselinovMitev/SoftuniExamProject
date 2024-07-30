@@ -28,7 +28,7 @@ function App() {
         name: authState.name,
         userId: authState.userId,
         email: authState.email,
-        accessToken: authState.token,
+        accessToken: authState.accessToken,
         isAuthenticated: !!authState.email,
         isAdmin: authState.email === 'cinema@admin.bg',
         changeAuthState,

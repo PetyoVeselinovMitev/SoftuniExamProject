@@ -31,3 +31,7 @@ export function useGetRecentMovies(setLoading) {
 
     return [movies, setMovies]
 }
+
+export function usePostNewMovie(title, summary, imageUrl, showtimes, accessToken) {
+    moviesAPI.postNewMovie(title, summary, imageUrl, showtimes, accessToken);
+}

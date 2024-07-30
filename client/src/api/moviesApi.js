@@ -20,10 +20,15 @@ const getShowtimeWithMovie = async (movieId) => {
     return movieWithShowtime;
 }
 
+const postNewMovie = async (title, summary, imageUrl, showtimes, accessToken) => {
+    console.log(title, summary, imageUrl, showtimes, accessToken);
+}
+
 const moviesAPI = {
     getAllMovies,
     getRecent,
-    getShowtimeWithMovie
+    getShowtimeWithMovie,
+    postNewMovie
 }
 
 export default moviesAPI;
