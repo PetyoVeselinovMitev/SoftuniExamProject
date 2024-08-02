@@ -28,11 +28,18 @@ const postNewMovie = async (title, summary, imageUrl, showtimes, accessToken) =>
     return;
 }
 
+const deleteMoive = async (movieId, accessToken) => {
+    console.log(movieId, accessToken);
+    await requester.del(BASE_URL + `/movies/${movieId}`,null, accessToken);
+    return;
+}
+
 const moviesAPI = {
     getAllMovies,
     getRecent,
     getShowtimeWithMovie,
-    postNewMovie
+    postNewMovie,
+    deleteMoive
 }
 
 export default moviesAPI;

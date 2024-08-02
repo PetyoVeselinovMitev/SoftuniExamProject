@@ -1,24 +1,43 @@
+import { useContext, useState } from "react";
+import moviesAPI from "../../../api/moviesApi";
+import { AuthContext } from "../../../contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
+
+
 export default function MovieRow(movie) {
+    const [deleted, setDeleted] = useState(false);
     const times = [];
+    const { accessToken } = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    const movieDeleteHandler = async () => {
+        await moviesAPI.deleteMoive(movie.movie[0]._movieId, accessToken);
+        setDeleted(true);
+        navigate('/admin');
+    }
 
     movie.movie.map(showtime => {
         times.push(showtime.time);
     })
 
-    return (
-        <tr>
-            <td><img src={movie.movie[0].movie.imageUrl} className="movie-thumbnail" /></td>
-            <td>{movie.movie[0].movie.title}</td>
-            <td>{movie.movie[0].movie.summary}</td>
-            <td className="projection-times">{times.map((time, index) => (
-                <button disabled key={index} className="times">{time}</button>
-            ))}</td>
-            <td>
-                <div className="button-wrapper">
-                    <button className="edit-btn">Edit</button>
-                    <button className="delete-btn">Delete</button>
-                </div>
-            </td>
-        </tr>
-    )
+    if (deleted) {
+        return null;
+    } else {
+        return (
+            <tr>
+                <td><img src={movie.movie[0].movie.imageUrl} className="movie-thumbnail" /></td>
+                <td>{movie.movie[0].movie.title}</td>
+                <td>{movie.movie[0].movie.summary}</td>
+                <td className="projection-times">{times.map((time, index) => (
+                    <button disabled key={index} className="times">{time}</button>
+                ))}</td>
+                <td>
+                    <div className="button-wrapper">
+                        <button className="edit-btn">Edit</button>
+                        <button className="delete-btn" onClick={movieDeleteHandler}>Delete</button>
+                    </div>
+                </td>
+            </tr>
+        )
+    }
 }
