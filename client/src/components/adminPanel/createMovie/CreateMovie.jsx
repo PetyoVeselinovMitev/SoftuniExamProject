@@ -35,7 +35,7 @@ export default function CreateMovie() {
         }
 
         try {
-            usePostNewMovie(title, summary, imageUrl, showtimes, accessToken);
+            await usePostNewMovie(title, summary, imageUrl, showtimes, accessToken);
             navigate('/admin');
         } catch (error) {
             setError(error.message);

@@ -7,7 +7,7 @@ export function useGetAllMoviesWithShowtimes(setLoading) {
     useEffect(() => {
         (async () => {
             const result = await moviesAPI.getAllMovies();
-            const moviesWithShowtimes = await Promise.all(result.map(async (movie) => {
+            const moviesWithShowtimes = await Promise.all(result.reverse().map(async (movie) => {
                 const data = await moviesAPI.getShowtimeWithMovie(movie._id);
                 return data;
             }));
