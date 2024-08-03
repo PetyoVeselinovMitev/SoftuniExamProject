@@ -14,6 +14,13 @@ const getRecent = async () => {
     return movies;
 }
 
+const getOneMovie = async (movieId) => {
+    const movie = await requester.get(BASE_URL + `/movies/${movieId}`);
+    const showtimesResult = await requester.get(BASE_URL + `/showtimes?where=_movieId%3D%22${movieId}%22`);
+    const showtimes = Object.values(showtimesResult);
+    return { movie, showtimes };
+}
+
 const getShowtimeWithMovie = async (movieId) => {
     const result = await requester.get(BASE_URL + `/showtimes?where=_movieId%3D%22${movieId}%22&load=movie%3d_movieId%3Amovies`);
     const movieWithShowtime = Object.values(result);
@@ -23,15 +30,37 @@ const getShowtimeWithMovie = async (movieId) => {
 const postNewMovie = async (title, summary, imageUrl, showtimes, accessToken) => {
     const newMovie = await requester.post(BASE_URL + '/movies', { title, summary, imageUrl }, accessToken);
     showtimes.split(', ').map(showtime => {
-        requester.post(BASE_URL + '/showtimes', { _movieId: newMovie._id, time: showtime }, accessToken);
+        requester.post(BASE_URL + '/showtimes', { _movieId: newMovie._id, time: showtime, seats: [] }, accessToken);
     })
     return;
 }
 
 const deleteMoive = async (movieId, accessToken) => {
-    console.log(movieId, accessToken);
-    await requester.del(BASE_URL + `/movies/${movieId}`,null, accessToken);
+    await requester.del(BASE_URL + `/movies/${movieId}`, null, accessToken);
     return;
+}
+
+const updateMovieWithShowTimes = async (accessToken, movieId, title, summary, imageUrl, showtimes) => {
+    console.log(accessToken, movieId, title, summary, imageUrl, showtimes);
+    
+    try {
+        const result = await requester.get(BASE_URL + `/showtimes?where=_movieId%3D%22${movieId}%22`);
+
+        result.map(showtime => {
+            requester.del(BASE_URL + `/showtimes/${showtime._id}`, null, accessToken);
+        })
+
+        showtimes.split(', ').map(showtime => {
+            requester.post(BASE_URL + '/showtimes', { _movieId: movieId, time: showtime, seats: [] }, accessToken);
+        })
+
+        requester.put(BASE_URL + `/movies/${movieId}`, { title, summary, imageUrl }, accessToken);
+    } catch (error) {
+        console.error(error.message);
+        return;
+    }
+
+    
 }
 
 const moviesAPI = {
@@ -39,7 +68,9 @@ const moviesAPI = {
     getRecent,
     getShowtimeWithMovie,
     postNewMovie,
-    deleteMoive
+    deleteMoive,
+    getOneMovie,
+    updateMovieWithShowTimes
 }
 
 export default moviesAPI;

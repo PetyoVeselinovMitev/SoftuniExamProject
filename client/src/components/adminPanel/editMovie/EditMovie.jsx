@@ -1,39 +1,98 @@
+import { useContext, useState } from 'react';
+import moviesAPI from '../../../api/moviesApi';
+import { useForm } from '../../../hooks/useForm';
+import { useGetOneMovie } from '../../../hooks/useMovies';
 import './EditMovie.css';
+import { useNavigate, useParams } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthContext';
+import Spinner from '../../spinner/Spinner';
 
 export default function EditMovie() {
-    return (
-        <form className="create-movie-form" >
-            <label htmlFor="title">Title:</label>
-            <input
-                type="text"
-                id="title"
-                name="title"
-            />
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState('');
+    const { accessToken } = useContext(AuthContext)
+    const navigate = useNavigate();
+    const { movieId } = useParams();
+    const [movie] = useGetOneMovie(movieId, setIsLoading);
 
-            <label htmlFor="summary">Summary:</label>
-            <textarea
-                id="summary"
-                name="summary"
-            />
+    const validateShowtimes = (showtimes) => {
+        const regex = /^(\d{2}:\d{2})(,\s*\d{2}:\d{2})*$/;
+        return regex.test(showtimes);
+    };
 
-            <label htmlFor="imageUrl">Image URL:</label>
-            <input
-                type="text"
-                id="imageUrl"
-                name="imageUrl"
-            />
+    const moviesUpdateHandler = async ({ title, summary, imageUrl, showtimes }) => {
 
-            <label htmlFor="showtime">Showtimes: </label>
-            <input
-                type="text"
-                id="showtimes"
-                name="showtimes"
-                placeholder='23:59, 23:59, 23:59'
-            />
-            <p className='error'>
-                <span>error</span>
-            </p>
-            <button type="submit">Add Movie</button>
-        </form>
-    );
-};
+        if (!title || !summary || !imageUrl || !showtimes) {
+            setError('All fields are required!');
+            return;
+        }
+        if (!validateShowtimes(showtimes)) {
+            setError('Showtimes must be in the format 21:30, 22:30, ...');
+            return;
+        }
+
+        try {
+            await moviesAPI.updateMovieWithShowTimes(accessToken, movieId, title, summary, imageUrl, showtimes);
+            navigate('/admin');
+        } catch (error) {
+            setError(error.message);
+            console.error(error.message);
+        }
+    }
+
+    const { changeHandler, submitHandler, values } = useForm(movie, moviesUpdateHandler, true);
+    if (isLoading) {
+        return <Spinner />
+    } else {
+
+        return (
+            <form className="create-movie-form" onSubmit={submitHandler} >
+                <label htmlFor="title">Title:</label>
+                <input
+                    type="text"
+                    id="title"
+                    name="title"
+                    onChange={changeHandler}
+                    value={values.title || ''}
+                />
+
+                <label htmlFor="summary">Summary:</label>
+                <textarea
+                    id="summary"
+                    name="summary"
+                    onChange={changeHandler}
+                    value={values.summary || ''}
+                />
+
+                <label htmlFor="imageUrl">Image URL:</label>
+                <input
+                    type="text"
+                    id="imageUrl"
+                    name="imageUrl"
+                    onChange={changeHandler}
+                    value={values.imageUrl || ''}
+                />
+
+                <label htmlFor="showtime">Showtimes: </label>
+                <input
+                    type="text"
+                    id="showtimes"
+                    name="showtimes"
+                    placeholder='23:59, 23:59, 23:59'
+                    onChange={changeHandler}
+                    value={values.showtimes || []}
+                />
+                {error && (
+                    <p className='error'>
+                        <span>{error}</span>
+                    </p>
+                )}
+
+
+
+
+                <button type="submit">Add Movie</button>
+            </form>
+        );
+    };
+}

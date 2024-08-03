@@ -1376,80 +1376,104 @@
 
         showtimes: {
             "0a272c58-b7ea-4e09-a000-7ec988248f66": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
                 _movieId: "3987279d-0ad4-4afb-8ca9-5b256ae3b298",
                 time: "16:00",
+                seats: [],
                 _createdOn: 1614260681375,
                 _id: "0a272c58-b7ea-4e09-a000-7ec988248f66"
             },
             "cc9b0a0f-655d-45d7-9857-0a61c6bb2c4d": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
                 _movieId: "3987279d-0ad4-4afb-8ca9-5b256ae3b298",
                 time: "17:00",
+                seats: [],
                 _createdOn: 1614260681375,
                 _id: "cc9b0a0f-655d-45d7-9857-0a61c6bb2c4d"
             },
             "8a03aa56-7a82-4a6b-9821-91349fbc552f": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
                 _movieId: "3987279d-0ad4-4afb-8ca9-5b256ae3b298",
                 time: "21:30",
+                seats: [],
                 _createdOn: 1614260681375,
                 _id: "8a03aa56-7a82-4a6b-9821-91349fbc552f"
             },
             "8a03aa56-7a82-4a6b-9821-9182iaos890a": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
                 _movieId: "3987279d-0ad4-4afb-8ca9-5b256ae3b298",
                 time: "23:30",
+                seats: [],
                 _createdOn: 1614260681375,
                 _id: "8a03aa56-7a82-4a6b-9821-9182iaos890a"
             },
 
 
             "0a272c58-b7ea-4e09-a000-82ksiw81921s": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
                 _movieId: "8f414b4f-ab39-4d36-bedb-2ad69da9c830",
                 time: "16:30",
+                seats: [],
                 _createdOn: 1614260681375,
                 _id: "0a272c58-b7ea-4e09-a000-82ksiw81921s"
             },
             "cc9b0a0f-655d-45d7-9857-0sk182ois712": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
                 _movieId: "8f414b4f-ab39-4d36-bedb-2ad69da9c830",
                 time: "17:30",
+                seats: [],
                 _createdOn: 1614260681375,
                 _id: "cc9b0a0f-655d-45d7-9857-0sk182ois712"
             },
             "8a03aa56-7a82-4a6b-9821-920162sjwq231": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
                 _movieId: "8f414b4f-ab39-4d36-bedb-2ad69da9c830",
                 time: "21:00",
+                seats: [],
                 _createdOn: 1614260681375,
                 _id: "8a03aa56-7a82-4a6b-9821-920162sjwq231"
             },
 
 
             "0a272c58-b7ea-4e09-a000-01827sjauw72": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
                 _movieId: "985d9eab-ad2e-4622-a5c8-116261fb1fd2",
                 time: "15:00",
+                seats: [],
                 _createdOn: 1614260681375,
                 _id: "0a272c58-b7ea-4e09-a000-01827sjauw72"
             },
             "cc9b0a0f-655d-45d7-9857-102skd82uea8": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
                 _movieId: "985d9eab-ad2e-4622-a5c8-116261fb1fd2",
                 time: "18:00",
+                seats: [],
                 _createdOn: 1614260681375,
                 _id: "cc9b0a0f-655d-45d7-9857-102skd82uea8"
             },
             "8a03aa56-7a82-4a6b-9821-asdk920123s8": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
                 _movieId: "985d9eab-ad2e-4622-a5c8-116261fb1fd2",
                 time: "22:00",
+                seats: [],
                 _createdOn: 1614260681375,
                 _id: "8a03aa56-7a82-4a6b-9821-asdk920123s8"
             },
 
 
             "cc9b0a0f-655d-45d7-9857-01kswpa8923a": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
                 _movieId: "985d9eab-ad2e-4622-a5c8-36123dasd23f",
                 time: "19:20",
+                seats: [],
                 _createdOn: 1614260681375,
                 _id: "cc9b0a0f-655d-45d7-9857-01kswpa8923a"
             },
             "8a03aa56-7a82-4a6b-9821-102ls726ysa": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
                 _movieId: "985d9eab-ad2e-4622-a5c8-36123dasd23f",
                 time: "20:50",
+                seats: [],
                 _createdOn: 1614260681375,
                 _id: "8a03aa56-7a82-4a6b-9821-102ls726ysa"
             },
