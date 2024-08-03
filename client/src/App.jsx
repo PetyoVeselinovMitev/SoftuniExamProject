@@ -12,6 +12,7 @@ import Reservation from "./components/reservation/Reservation";
 import UserReservations from "./components/userReservations/UserReservations";
 import CreateMovie from "./components/adminPanel/createMovie/CreateMovie";
 import Logout from "./components/logout/Logout";
+import EditMovie from "./components/adminPanel/editMovie/EditMovie";
 
 function App() {
     const [authState, setAuthState] = useState({});
@@ -46,6 +47,7 @@ function App() {
                     <Route path="/register" element={<Register />} />
                     <Route path="/logout" element={<Logout />} />
                     <Route path="/admin" element={<AdminPanel />} />
+                    <Route path="/admin/:movieId/edit" element={<EditMovie />} />
                     <Route path="/program/movie/time" element={<Reservation />} />
                     <Route path="/user/reservations" element={<UserReservations />} />
                     <Route path="/admin/create" element={<CreateMovie />} />

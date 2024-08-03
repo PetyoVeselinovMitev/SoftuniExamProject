@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import moviesAPI from "../../../api/moviesApi";
 import { AuthContext } from "../../../contexts/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 export default function MovieRow(movie) {
@@ -33,7 +33,7 @@ export default function MovieRow(movie) {
                 ))}</td>
                 <td>
                     <div className="button-wrapper">
-                        <button className="edit-btn">Edit</button>
+                        <Link to={`/admin/${movie.movie[0]._movieId}/edit`}><button className="edit-btn">Edit</button></Link>
                         <button className="delete-btn" onClick={movieDeleteHandler}>Delete</button>
                     </div>
                 </td>
