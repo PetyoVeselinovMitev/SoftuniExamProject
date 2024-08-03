@@ -15,6 +15,22 @@
     border-radius: 5px
 }
 
+.movie-card {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.movie-thumbnail {
+    width: 200px;
+    height: auto;
+    margin-right: 20px;
+}
+
+.movie-summary {
+    flex: 1;
+}
+
 .seats-grid {
     margin-top: 150px;
     display: grid;

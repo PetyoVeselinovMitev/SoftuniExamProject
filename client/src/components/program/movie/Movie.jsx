@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../../../contexts/AuthContext";
+import { Link } from "react-router-dom";
 
 export default function Movie(movie) {
     const { isAdmin } = useContext(AuthContext);
@@ -23,7 +24,9 @@ export default function Movie(movie) {
                             <button disabled key={index} className="time-btn">{time}</button>
                         ))
                         : times.map((time, index) => (
-                            <button key={index} className="time-btn">{time}</button>
+                            <Link to={`/program/${movie.movie[0].movie._id}/${time}`} state={movie.movie[0].movie}>
+                                <button key={index} className="time-btn">{time}</button>
+                            </Link>
                         ))
                     }
                 </div>

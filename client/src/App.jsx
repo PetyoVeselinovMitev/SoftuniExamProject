@@ -48,7 +48,7 @@ function App() {
                     <Route path="/logout" element={<Logout />} />
                     <Route path="/admin" element={<AdminPanel />} />
                     <Route path="/admin/:movieId/edit" element={<EditMovie />} />
-                    <Route path="/program/movie/time" element={<Reservation />} />
+                    <Route path="/program/:movieId/:showtime" element={<Reservation />} />
                     <Route path="/user/reservations" element={<UserReservations />} />
                     <Route path="/admin/create" element={<CreateMovie />} />
                 </Routes>
