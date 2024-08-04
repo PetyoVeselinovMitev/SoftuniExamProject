@@ -33,6 +33,7 @@ export default function EditMovie() {
 
         try {
             await moviesAPI.updateMovieWithShowTimes(accessToken, movieId, title, summary, imageUrl, showtimes);
+            values.showtimes = [];
             navigate('/admin');
         } catch (error) {
             setError(error.message);
