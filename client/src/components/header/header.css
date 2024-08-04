@@ -5,7 +5,7 @@
 
 .navbar .nav-links {
     list-style-type: none;
-    padding: 0;
+    padding-left: 100px;
     margin: 0;
     display: flex;
     justify-content: center
@@ -28,10 +28,11 @@
 .navbar,
 .user-section {
     display: flex;
-    align-items: center
+    align-items: center;
 }
 
 .user-section {
+    margin-right: 100px;
     margin-left: auto;
     gap: 10px;
     padding-right: 20px;

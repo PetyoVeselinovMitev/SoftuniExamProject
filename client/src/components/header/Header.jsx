@@ -5,7 +5,7 @@ import './header.css';
 import { AuthContext } from '../../contexts/AuthContext';
 
 const Header = () => {
-	const { isAuthenticated, name, email, isAdmin } = useContext(AuthContext);
+	const { isAuthenticated, name, isAdmin } = useContext(AuthContext);
 	return (
 		<header className="header">
 			<nav className="navbar">
@@ -19,9 +19,7 @@ const Header = () => {
 								<li><Link to="/register">Register</Link></li>
 							</>
 						)}
-
 				</ul>
-
 				{isAuthenticated
 					&& (<div className="user-section">
 						<span>Welcome, {name}!</span>
