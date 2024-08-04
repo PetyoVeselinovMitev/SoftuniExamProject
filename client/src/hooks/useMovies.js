@@ -52,3 +52,19 @@ export function useGetOneMovie(movieId, setIsLoading) {
 export function usePostNewMovie(title, summary, imageUrl, showtimes, accessToken) {
     moviesAPI.postNewMovie(title, summary, imageUrl, showtimes, accessToken);
 }
+
+export function useUpdateMovieWithShowTimes(accessToken, movieId, title, summary, imageUrl, showtimes) {
+    moviesAPI.updateMovieWithShowTimes(accessToken, movieId, title, summary, imageUrl, showtimes);
+}
+
+export function useGetOneShowtime(showtimeId) {
+    const [seats, setSeats] = useState([]);
+
+    useEffect(() => {
+        (async () => {
+            const result = await moviesAPI.getOneShowtime(showtimeId);
+            setSeats(result.seats);
+        })()
+    }, [])
+    return seats;
+}

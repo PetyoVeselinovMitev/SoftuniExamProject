@@ -41,8 +41,6 @@ const deleteMoive = async (movieId, accessToken) => {
 }
 
 const updateMovieWithShowTimes = async (accessToken, movieId, title, summary, imageUrl, showtimes) => {
-    console.log(accessToken, movieId, title, summary, imageUrl, showtimes);
-    
     try {
         const result = await requester.get(BASE_URL + `/showtimes?where=_movieId%3D%22${movieId}%22`);
 
@@ -59,8 +57,11 @@ const updateMovieWithShowTimes = async (accessToken, movieId, title, summary, im
         console.error(error.message);
         return;
     }
+}
 
-    
+const getOneShowtime = async (showtimeId) => {
+    const result = await requester.get(BASE_URL + `/showtimes/${showtimeId}`);
+    return result;
 }
 
 const moviesAPI = {
@@ -70,7 +71,8 @@ const moviesAPI = {
     postNewMovie,
     deleteMoive,
     getOneMovie,
-    updateMovieWithShowTimes
+    updateMovieWithShowTimes,
+    getOneShowtime
 }
 
 export default moviesAPI;

@@ -24,7 +24,6 @@ export default function Movie(movie) {
                             <button disabled key={index} className="time-btn">{time}</button>
                         ))
                         : movie.movie.map((record) => (
-                            console.log(record),
                             <Link to={`/program/${movie.movie[0].movie._id}/${record.time}`} state={{movie: movie.movie[0].movie, showtime: record}}>
                                 <button key={record._id} className="time-btn">{record.time}</button>
                             </Link>
