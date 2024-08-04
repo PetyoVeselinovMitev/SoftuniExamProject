@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import './Login.css';
 import { useForm } from '../../hooks/useForm';
 import { useUserLogin } from '../../hooks/useAuth';
@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 const initialValues = { email: '', password: '' }
 
 export default function Login() {
+    const [error, setError] = useState('');
     const login = useUserLogin();
     const navigate = useNavigate();
     const loginHandler = async ({ email, password }) => {
@@ -14,7 +15,7 @@ export default function Login() {
             await login(email, password); 
             navigate('/program');
         } catch (error) {
-            console.error(error.message);
+            setError(error.message);
         }
     };
 
@@ -44,6 +45,7 @@ export default function Login() {
                     value={values.password}
                     onChange={changeHandler}
                 />
+                {error && <p className="error">{error}</p>}
                 <button type="submit">login</button >
             </form>
         </div>
