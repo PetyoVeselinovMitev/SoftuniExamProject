@@ -3,6 +3,17 @@
     color: #fff
 }
 
+.admin-panel-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.movie-table-container {
+    width: 80%;
+    max-width: 1600px;
+}
+
 .movie-table tr:nth-child(even) {
     background-color: #f2f2f2
 }
