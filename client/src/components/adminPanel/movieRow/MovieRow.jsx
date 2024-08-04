@@ -25,7 +25,7 @@ export default function MovieRow(movie) {
     } else {
         return (
             <tr>
-                <td><img src={movie.movie[0].movie.imageUrl} className="movie-thumbnail" /></td>
+                <td><img src={movie.movie[0].movie.imageUrl} className="movie-thumbnail-panel" /></td>
                 <td>{movie.movie[0].movie.title}</td>
                 <td>{movie.movie[0].movie.summary}</td>
                 <td className="projection-times">{times.map((time, index) => (
