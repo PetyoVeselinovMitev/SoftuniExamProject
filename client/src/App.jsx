@@ -13,8 +13,8 @@ import UserReservations from "./components/userReservations/UserReservations";
 import CreateMovie from "./components/adminPanel/createMovie/CreateMovie";
 import Logout from "./components/logout/Logout";
 import EditMovie from "./components/adminPanel/editMovie/EditMovie";
-import AdminViewRouteGuard from "./components/adminPanel/common/AdminViewRouteGuard";
-import PrivateViewRouteGuard from "./components/adminPanel/common/PrivateViewRouteGuard";
+import PrivateViewRouteGuard from "./components/common/PrivateViewRouteGuard";
+import AdminViewRouteGuard from "./components/common/AdminViewRouteGuard";
 
 function App() {
     const [authState, setAuthState] = useState({});
@@ -57,7 +57,7 @@ function App() {
                         <Route path="/admin/:movieId/edit" element={<EditMovie />} />
                         <Route path="/admin/create" element={<CreateMovie />} />
                     </Route>
-
+s
                 </Routes>
             </AuthContext.Provider>
         </>
