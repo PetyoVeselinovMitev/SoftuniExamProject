@@ -10,6 +10,24 @@ export function useGetUserReservationsData(userId) {
             setReservations(result);
         })()
     }, [])
-   
-    return reservations ;
+
+    return reservations;
+}
+
+export async function usePostUserReservation({ movie, showtime, selectedSeats, takenSeats, accessToken }) {
+    const useReservationData = {
+        movieId: movie._id,
+        movieTittle: movie.title,
+        movieImage: movie.imageUrl,
+        showtimeId: showtime._id,
+        showtime: showtime.time,
+        seats: selectedSeats,
+    }
+
+    const allSeats = takenSeats.concat(selectedSeats);
+
+    await moviesAPI.updateShowtime(showtime, allSeats);
+    await moviesAPI.createUserReservation(useReservationData, accessToken);
+
+    return;
 }

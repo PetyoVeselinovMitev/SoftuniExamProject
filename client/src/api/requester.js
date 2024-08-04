@@ -1,9 +1,15 @@
-async function requester(method, url, data, accessToken) {
+async function requester(method, url, data, accessToken, XAdmin) {
     const options = {};
 
     if (method !== 'GET') {
         options.method = method;
     };
+
+    if (XAdmin) {
+        options.headers = {
+            'X-Admin': 'true'
+        }
+    }
 
     if (accessToken) {
         options.headers = {

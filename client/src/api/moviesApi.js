@@ -70,6 +70,16 @@ const getUserReservations = async (userId) => {
     return reservations;
 }
 
+const updateShowtime = async (showtime, allSeats) => {
+    const result = await requester.put(BASE_URL + `/showtimes/${showtime._id}`, { ...showtime, seats: allSeats }, null, { XAdmin: 'X-Admin' });
+    return result;
+}
+
+const createUserReservation = async (data, accessToken) => {
+    const result = await requester.post(BASE_URL + '/usersReservations', data, accessToken);
+    return result;
+}
+
 const moviesAPI = {
     getAllMovies,
     getRecent,
@@ -79,7 +89,9 @@ const moviesAPI = {
     getOneMovie,
     updateMovieWithShowTimes,
     getOneShowtime,
-    getUserReservations
+    getUserReservations,
+    updateShowtime,
+    createUserReservation
 }
 
 export default moviesAPI;

@@ -1,8 +1,13 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Reservation.css';
-import { useState } from 'react';
+import { usePostUserReservation } from '../../hooks/useReservations';
+import { useContext, useState } from 'react';
+import { AuthContext } from '../../contexts/AuthContext';
 
 const Reservation = () => {
+    const { accessToken } = useContext(AuthContext)
+    const navigate = useNavigate()
+    const [error, setError] = useState('');
     const rows = ['A', 'B', 'C', 'D', 'E', 'F'];
     const columns = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
     const location = useLocation();
@@ -11,9 +16,21 @@ const Reservation = () => {
     const [selectedSeats, setSelectedSeats] = useState([]);
     const allSeats = takenSeats.concat(selectedSeats);
 
-    const reservationSubmitHandler = () => {
-        console.log('update showtime with new seats', allSeats);
-        console.log('create user reservation', selectedSeats);
+    const reservationSubmitHandler = async () => {
+        if (selectedSeats.length === 0) {
+            setError('Please select at least one seat');
+            return;
+        }
+
+        try {
+            await usePostUserReservation({ movie, showtime, selectedSeats, takenSeats, accessToken })
+            navigate('/user/reservations')
+        } catch (error) {
+            setError(error.message);
+            return;
+        }
+        
+        
     }
 
 
@@ -57,6 +74,7 @@ const Reservation = () => {
                     })
                 )}
             </div>
+            {error && <h2 className="error">{error}</h2>}
             <button className="finish-reservation-btn" onClick={reservationSubmitHandler}>Finish Reservation</button>
             <Link to={'/program'}><button className="finish-reservation-btn">Cancel</button></Link>
         </div>
