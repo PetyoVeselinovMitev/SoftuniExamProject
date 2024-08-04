@@ -32,24 +32,30 @@
 }
 
 .seats-grid {
-    margin-top: 150px;
+    margin-top: 100px;
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(12, 1fr);
     gap: 10px
 }
 
 .seat {
-    width: 120px;
-    height: 80px;
-    background-color: #eee;
+    width: 60px;
+    height: 60px;
+    margin: 5px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    cursor: pointer
+    justify-content: center;
+    cursor: pointer;
+    background-color: #ccc;
+    border-radius: 8px;
+}
+
+.seat.taken {
+    background-color: #ff4d4d;
 }
 
 .seat.selected {
-    background-color: #4caf50
+    background-color: #4caf50;
 }
 
 .finish-reservation-btn {
