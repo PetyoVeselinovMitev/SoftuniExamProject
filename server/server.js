@@ -1489,7 +1489,9 @@
                 _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
                 _movieId: "985d9eab-ad2e-4622-a5c8-36123dasd23f",
                 time: "19:20",
-                seats: [],
+                seats: [
+                    "B2", "B3"
+                ],
                 _createdOn: 1614260681375,
                 _id: "cc9b0a0f-655d-45d7-9857-01kswpa8923a"
             },
@@ -1497,7 +1499,13 @@
                 _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
                 _movieId: "985d9eab-ad2e-4622-a5c8-36123dasd23f",
                 time: "20:50",
-                seats: [],
+                seats: [
+                    "F4", "F5", "F6", "F7", "F8", "F9", "F10",
+                    "E5", "E6", "E7", "E10",
+                    "D1", "D2", "D3", "D4", "D5", "D6", "D7", "D8", "D9", "D10",
+                    "C3", "C4", "C6", "C8", "C9", "C10",
+                    "B5", "B6", "B7"
+                ],
                 _createdOn: 1614260681375,
                 _id: "8a03aa56-7a82-4a6b-9821-102ls726ysa"
             },
