@@ -64,6 +64,12 @@ const getOneShowtime = async (showtimeId) => {
     return result;
 }
 
+const getUserReservations = async (userId) => {
+    const result = await requester.get(BASE_URL + `/usersReservations?where=_ownerId%3D%22${userId}%22`);
+    const reservations = Object.values(result);
+    return reservations;
+}
+
 const moviesAPI = {
     getAllMovies,
     getRecent,
@@ -72,7 +78,8 @@ const moviesAPI = {
     deleteMoive,
     getOneMovie,
     updateMovieWithShowTimes,
-    getOneShowtime
+    getOneShowtime,
+    getUserReservations
 }
 
 export default moviesAPI;
