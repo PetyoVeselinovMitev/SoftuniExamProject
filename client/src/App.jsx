@@ -13,6 +13,8 @@ import UserReservations from "./components/userReservations/UserReservations";
 import CreateMovie from "./components/adminPanel/createMovie/CreateMovie";
 import Logout from "./components/logout/Logout";
 import EditMovie from "./components/adminPanel/editMovie/EditMovie";
+import AdminViewRouteGuard from "./components/adminPanel/common/AdminViewRouteGuard";
+import PrivateViewRouteGuard from "./components/adminPanel/common/PrivateViewRouteGuard";
 
 function App() {
     const [authState, setAuthState] = useState({});
@@ -42,15 +44,20 @@ function App() {
 
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/program" element={<Program />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
-                    <Route path="/logout" element={<Logout />} />
-                    <Route path="/admin" element={<AdminPanel />} />
-                    <Route path="/admin/:movieId/edit" element={<EditMovie />} />
-                    <Route path="/program/:movieId/:showtime" element={<Reservation />} />
-                    <Route path="/user/reservations" element={<UserReservations />} />
-                    <Route path="/admin/create" element={<CreateMovie />} />
+                    <Route path="/program" element={<Program />} />
+                    <Route element={<PrivateViewRouteGuard />}>
+                        <Route path="/logout" element={<Logout />} />
+                        <Route path="/program/:movieId/:showtime" element={<Reservation />} />
+                        <Route path="/user/reservations" element={<UserReservations />} />
+                    </Route>
+                    <Route element={<AdminViewRouteGuard />}>
+                        <Route path="/admin" element={<AdminPanel />} />
+                        <Route path="/admin/:movieId/edit" element={<EditMovie />} />
+                        <Route path="/admin/create" element={<CreateMovie />} />
+                    </Route>
+
                 </Routes>
             </AuthContext.Provider>
         </>
