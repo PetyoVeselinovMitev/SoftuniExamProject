@@ -38,7 +38,7 @@ export function useGetOneMovie(movieId, setIsLoading) {
     useEffect(() => {
         (async () => {
             const { movie, showtimes } = await moviesAPI.getOneMovie(movieId)
-            
+
             let showtimesArr = [];
             showtimes.map(showtime => showtimesArr.push(showtime.time));
             movie.showtimes = showtimesArr.join(', ');
@@ -49,8 +49,8 @@ export function useGetOneMovie(movieId, setIsLoading) {
     return [movie, setMovie]
 }
 
-export function usePostNewMovie(title, summary, imageUrl, showtimes, accessToken) {
-    moviesAPI.postNewMovie(title, summary, imageUrl, showtimes, accessToken);
+export async function usePostNewMovie(title, summary, imageUrl, showtimes, accessToken) {
+    await moviesAPI.postNewMovie(title, summary, imageUrl, showtimes, accessToken);
 }
 
 export function useUpdateMovieWithShowTimes(accessToken, movieId, title, summary, imageUrl, showtimes) {

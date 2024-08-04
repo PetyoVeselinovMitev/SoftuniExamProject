@@ -19,13 +19,10 @@ export default function UserReservations() {
                     return (
                         <div className="card" key={reservation._id}>
                             <img src={reservation.movieImage} />
-                            <h3>{reservation.movieTitle}</h3>
-                            <p>{reservation.showtime}</p>
+                            <h3>{reservation.movieTittle}</h3>
+                            <p>Showtime: {reservation.showtime}</p>
                             <p>Seats: {reservation.seats.join(', ')}</p>
-                            <div className="button-container">
-                                <button className="edit-button">Edit</button>
-                                <button className="delete-button">Delete</button>
-                            </div>
+                            
                         </div>
                     )
                 })

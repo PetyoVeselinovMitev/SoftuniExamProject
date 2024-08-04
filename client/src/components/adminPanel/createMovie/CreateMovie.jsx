@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import './CreateMovie.css';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from '../../../hooks/useForm';
 import { usePostNewMovie } from '../../../hooks/useMovies';
 import { AuthContext } from '../../../contexts/AuthContext';
@@ -89,6 +89,7 @@ export default function CreateMovie() {
                 </p>
             )}
             <button type="submit">Add Movie</button>
+            <Link to={'/admin'}><button>Cancel</button></Link>
         </form>
     );
 };
