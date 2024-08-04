@@ -20,12 +20,15 @@ export default function Movie(movie) {
                 <p>{movie.movie[0].movie.summary}</p>
                 <div className="movie-times">
                     {isAdmin
-                        ? times.map((time, index) => (
-                            <button disabled key={index} className="time-btn">{time}</button>
+                        ? movie.movie.map((record) => (
+                            <button disabled key={record._id} className="time-btn">{record.time}</button>
                         ))
                         : movie.movie.map((record) => (
-                            <Link to={`/program/${movie.movie[0].movie._id}/${record.time}`} state={{movie: movie.movie[0].movie, showtime: record}}>
-                                <button key={record._id} className="time-btn">{record.time}</button>
+                            <Link to={`/program/${movie.movie[0].movie._id}/${record.time}`}
+                                state={{ movie: movie.movie[0].movie, showtime: record }}
+                                key={record._id}
+                            >
+                                <button className="time-btn">{record.time}</button>
                             </Link>
                         ))
                     }
