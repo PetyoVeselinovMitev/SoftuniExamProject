@@ -54,6 +54,18 @@ const Reservation = () => {
                     <h3 className="movie-title">{movie.title}</h3>
                     <p className="movie-summary">{movie.summary}</p>
                 </div>
+                <div className="legend-container">
+                <h2>Seat Legend</h2>
+                <div className="legend-item">
+                    <span className="seat legend-available"></span> Available
+                </div>
+                <div className="legend-item">
+                    <span className="seat legend-reserved"></span> Reserved
+                </div>
+                <div className="legend-item">
+                    <span className="seat legend-selected"></span> Selected
+                </div>
+            </div>
             </div>
             <div className="screen">Screen</div>
             <div className="seats-grid">
