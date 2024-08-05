@@ -10,9 +10,9 @@ export default function MovieRow({ movie, onDelete }) {
     return (
         <tr>
             <td><img src={movie[0].movie.imageUrl} className="movie-thumbnail-panel" /></td>
-            <td>{movie[0].movie.title}</td>
-            <td>{movie[0].movie.summary}</td>
-            <td className="projection-times">{times.map((time, index) => (
+            <td className="table-padding">{movie[0].movie.title}</td>
+            <td className="table-padding">{movie[0].movie.summary}</td>
+            <td className="projection-times table-padding">{times.map((time, index) => (
                 <button disabled key={index} className="times">{time}</button>
             ))}</td>
             <td>

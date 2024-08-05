@@ -37,16 +37,23 @@
 
 .edit-btn {
     background-color: #4caf50;
-    color: #fff
+    color: #fff;
+    border-radius: 5px;
+}
+
+.table-padding{
+    padding: 30px
 }
 
 .delete-btn {
     background-color: #f44336;
-    color: #fff
+    color: #fff;
+    border-radius: 5px;
+
 }
 
 .movie-table td {
-    vertical-align: middle
+    vertical-align: middles
 }
 
 .movie-table td,
