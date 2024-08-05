@@ -15,6 +15,7 @@ import Logout from "./components/logout/Logout";
 import EditMovie from "./components/adminPanel/editMovie/EditMovie";
 import PrivateViewRouteGuard from "./components/common/PrivateViewRouteGuard";
 import AdminViewRouteGuard from "./components/common/AdminViewRouteGuard";
+import PublicViewRouteGuard from "./components/common/PublicViewRouteGuard";
 
 function App() {
     const [authState, setAuthState] = useState({});
@@ -44,9 +45,11 @@ function App() {
 
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/register" element={<Register />} />
                     <Route path="/program" element={<Program />} />
+                    <Route element={<PublicViewRouteGuard />}>
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/register" element={<Register />} />
+                    </Route>
                     <Route element={<PrivateViewRouteGuard />}>
                         <Route path="/logout" element={<Logout />} />
                         <Route path="/program/:movieId/:showtime" element={<Reservation />} />
@@ -57,7 +60,7 @@ function App() {
                         <Route path="/admin/:movieId/edit" element={<EditMovie />} />
                         <Route path="/admin/create" element={<CreateMovie />} />
                     </Route>
-s
+                    s
                 </Routes>
             </AuthContext.Provider>
         </>
