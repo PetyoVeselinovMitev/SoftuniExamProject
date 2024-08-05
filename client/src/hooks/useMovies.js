@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import moviesAPI from "../api/moviesApi";
 
-export function useGetAllMoviesWithShowtimes(setLoading) {
+export function useGetAllMoviesWithShowtimes(setLoading, reinitialize) {
     const [movies, setMovies] = useState([]);
 
     useEffect(() => {
@@ -14,7 +14,7 @@ export function useGetAllMoviesWithShowtimes(setLoading) {
             setMovies(moviesWithShowtimes);
             setLoading(false);
         })();
-    }, []);
+    }, [reinitialize]);
     return [movies, setMovies, setLoading]
 }
 

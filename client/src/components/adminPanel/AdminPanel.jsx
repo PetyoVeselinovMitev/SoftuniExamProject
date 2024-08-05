@@ -1,14 +1,43 @@
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useContext, useState } from 'react';
 import { useGetAllMoviesWithShowtimes } from '../../hooks/useMovies';
 import './AdminPanel.css';
+import { AuthContext } from '../../contexts/AuthContext';
 
 import Spinner from '../spinner/Spinner';
 import MovieRow from './movieRow/MovieRow';
+import moviesAPI from '../../api/moviesApi';
+import DeleteModal from './deleteModal/DeleteModal';
 
 export default function AdminPanel() {
     const [loading, setLoading] = useState(true);
-    const [movies] = useGetAllMoviesWithShowtimes(setLoading);
+    const [reinitialize, setReinitialize] = useState(false);
+    const [movies] = useGetAllMoviesWithShowtimes(setLoading, reinitialize);
+    const { accessToken } = useContext(AuthContext);
+    const [movieToDelete, setMovieToDelete] = useState({});
+    const [showModal, setShowModal] = useState(false);
+    const navigate = useNavigate()
+
+    const handleDeleteClick = (movie) => {
+        setMovieToDelete(movie);
+        setShowModal(true);
+    };
+
+    const handleCloseModal = () => {
+        setShowModal(false);
+        setMovieToDelete({});
+    };
+
+    const handleConfirmDelete = async (movie) => {
+        try {
+            await moviesAPI.deleteMoive(movie[0]._movieId, accessToken);
+            navigate('/admin');
+            handleCloseModal();
+            setReinitialize(!reinitialize);
+        } catch (error) {
+            console.error(error);
+        }
+    };
 
 
     return (
@@ -34,6 +63,7 @@ export default function AdminPanel() {
                                     <MovieRow
                                         key={movie[0]._movieId}
                                         movie={movie}
+                                        onDelete={() => handleDeleteClick(movie)}
                                     />
                                 )}
                             </tbody>
@@ -44,6 +74,12 @@ export default function AdminPanel() {
                     </>
                 )}
             </div>
+            <DeleteModal
+                show={showModal}
+                onClose={handleCloseModal}
+                onConfirm={() => handleConfirmDelete(movieToDelete)}
+                movie={movieToDelete}
+            />
         </div>
     );
 }
