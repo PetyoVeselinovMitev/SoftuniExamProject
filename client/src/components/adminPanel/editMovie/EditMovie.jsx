@@ -92,7 +92,7 @@ export default function EditMovie() {
 
 
 
-                <button type="submit">Add Movie</button>
+                <button type="submit">Save Movie</button>
             </form>
         );
     };

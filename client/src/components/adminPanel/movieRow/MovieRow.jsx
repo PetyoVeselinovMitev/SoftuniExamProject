@@ -18,7 +18,7 @@ export default function MovieRow({ movie, onDelete }) {
             ))}</td>
             <td>
                 <div className="button-wrapper">
-                    <Link to={`/admin/${movie[0].movie._movieId}/edit`}><button className="edit-btn">Edit</button></Link>
+                    <Link to={`/admin/${movie[0]._movieId}/edit`}><button className="edit-btn">Edit</button></Link>
                     <button className="delete-btn" onClick={onDelete}>Delete</button>
                 </div>
             </td>
