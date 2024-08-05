@@ -10,9 +10,23 @@ export default function Login() {
     const [error, setError] = useState('');
     const login = useUserLogin();
     const navigate = useNavigate();
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
     const loginHandler = async ({ email, password }) => {
+
+        if (!emailRegex.test(email)) {
+            setError('This does not look like an email.');
+            return;
+        }
+
+        if (!password) {
+            setError('Password is required.');
+            return;
+        }
+
         try {
-            await login(email, password); 
+            await login(email, password);
             navigate('/program');
         } catch (error) {
             setError(error.message);
@@ -30,7 +44,7 @@ export default function Login() {
                 <h1>login</h1>
                 <label htmlFor="email">Email</label>
                 <input
-                    type="email"
+                    type="text"
                     id="email"
                     name="email"
                     value={values.email}

@@ -17,6 +17,11 @@ export default function Register() {
     const navigate = useNavigate();
 
     const registerHandler = async ({ name, email, password, rePass }) => {
+        if (password.length < 6) {
+            setError('Password must be at least 6 characters long!');
+            return;
+        }
+
         if (password !== rePass) {
             setError('Passwords do not match!');
             return;

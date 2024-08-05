@@ -29,6 +29,12 @@ export default function CreateMovie() {
             setError('All fields are required!');
             return;
         }
+
+        if (summary.length < 20) {
+            setError('Summary must be at least 20 characters long!');
+            return;
+        }
+
         if (!validateShowtimes(showtimes)) {
             setError('Showtimes must be in the format 21:30, 22:30, ...');
             return;
