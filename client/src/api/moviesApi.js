@@ -48,11 +48,11 @@ const updateMovieWithShowTimes = async (accessToken, movieId, title, summary, im
             requester.del(BASE_URL + `/showtimes/${showtime._id}`, null, accessToken);
         })
 
-        showtimes.split(', ').map(showtime => {
-            requester.post(BASE_URL + '/showtimes', { _movieId: movieId, time: showtime, seats: [] }, accessToken);
+        showtimes.split(', ').map(async(showtime) => {
+            await requester.post(BASE_URL + '/showtimes', { _movieId: movieId, time: showtime, seats: [] }, accessToken);
         })
 
-        requester.put(BASE_URL + `/movies/${movieId}`, { title, summary, imageUrl }, accessToken);
+        await requester.put(BASE_URL + `/movies/${movieId}`, { title, summary, imageUrl }, accessToken);
     } catch (error) {
         console.error(error.message);
         return;
