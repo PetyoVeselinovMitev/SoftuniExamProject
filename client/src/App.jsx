@@ -42,7 +42,6 @@ function App() {
         <>
             <AuthContext.Provider value={contextData}>
                 <Header />
-
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/program" element={<Program />} />
@@ -60,7 +59,6 @@ function App() {
                         <Route path="/admin/:movieId/edit" element={<EditMovie />} />
                         <Route path="/admin/create" element={<CreateMovie />} />
                     </Route>
-                    s
                 </Routes>
             </AuthContext.Provider>
         </>

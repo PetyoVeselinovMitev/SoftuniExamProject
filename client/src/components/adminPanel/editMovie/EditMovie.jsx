@@ -41,7 +41,7 @@ export default function EditMovie() {
         }
     }
 
-    const { changeHandler, submitHandler, values } = useForm(movie, moviesUpdateHandler, true);
+    const { changeHandler, submitHandler, values } = useForm(movie, moviesUpdateHandler);
     if (isLoading) {
         return <Spinner />
     } else {
