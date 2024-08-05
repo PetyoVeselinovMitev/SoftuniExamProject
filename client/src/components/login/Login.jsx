@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './Login.css';
 import { useForm } from '../../hooks/useForm';
 import { useUserLogin } from '../../hooks/useAuth';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const initialValues = { email: '', password: '' }
 
@@ -61,6 +61,7 @@ export default function Login() {
                 />
                 {error && <p className="error">{error}</p>}
                 <button type="submit">login</button >
+                <p>Don't have an account? <Link to="/register">Register</Link></p>
             </form>
         </div>
     );
