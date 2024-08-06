@@ -8,6 +8,7 @@ export function useForm(initialState, submitCallback) {
     }, [initialState])
 
     const changeHandler = (e) => {
+
         setValues(values => ({
             ...values,
             [e.target.name]: e.target.value

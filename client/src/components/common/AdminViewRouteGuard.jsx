@@ -9,5 +9,5 @@ export default function AdminViewRouteGuard() {
         return <Navigate to='/login' />
     } else {
         return <Outlet />
-    }
+    };
 }

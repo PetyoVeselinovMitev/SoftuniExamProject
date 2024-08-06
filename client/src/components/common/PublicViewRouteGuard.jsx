@@ -9,5 +9,5 @@ export default function PublicViewRouteGuard() {
         return <Navigate to='/' />
     } else {
         return <Outlet />
-    }
+    };
 }

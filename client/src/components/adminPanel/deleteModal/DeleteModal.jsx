@@ -4,7 +4,7 @@ import './DeleteModal.css';
 export default function DeleteModal({ show, onClose, onConfirm, movie }) {
     if (!show) {
         return null;
-    }
+    };
 
     return (
         <div className="modal-overlay">

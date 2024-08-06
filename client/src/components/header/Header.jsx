@@ -24,8 +24,8 @@ const Header = () => {
 					&& (<div className="user-section">
 						<span>Welcome, {name}!</span>
 						{isAdmin
-						? <li><Link to="/admin">Admin panel</Link></li>
-						: <li><Link to="/user/reservations">My reservations</Link></li>
+							? <li><Link to="/admin">Admin panel</Link></li>
+							: <li><Link to="/user/reservations">My reservations</Link></li>
 						}
 						<li><Link to="/logout">Logout</Link></li>
 					</div>

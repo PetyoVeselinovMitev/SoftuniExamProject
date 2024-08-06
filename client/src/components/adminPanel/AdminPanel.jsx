@@ -39,7 +39,6 @@ export default function AdminPanel() {
         }
     };
 
-
     return (
         <div className="admin-panel-wrapper">
             <div className="movie-table-container">

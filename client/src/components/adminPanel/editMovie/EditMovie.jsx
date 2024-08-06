@@ -1,11 +1,11 @@
+import './EditMovie.css';
 import { useContext, useState } from 'react';
-import moviesAPI from '../../../api/moviesApi';
 import { useForm } from '../../../hooks/useForm';
 import { useGetOneMovie } from '../../../hooks/useMovies';
-import './EditMovie.css';
 import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthContext';
 import Spinner from '../../spinner/Spinner';
+import moviesAPI from '../../../api/moviesApi';
 
 export default function EditMovie() {
     const [isLoading, setIsLoading] = useState(true);

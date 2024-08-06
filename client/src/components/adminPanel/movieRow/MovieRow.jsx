@@ -5,7 +5,7 @@ export default function MovieRow({ movie, onDelete }) {
 
     movie.map(showtime => {
         times.push(showtime.time);
-    })
+    });
 
     return (
         <tr>

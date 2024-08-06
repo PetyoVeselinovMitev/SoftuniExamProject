@@ -7,11 +7,11 @@ export default function PrivateViewRouteGuard() {
 
     if (isAuthenticated && isAdmin) {
         return <Navigate to='/home' />
-    }
-    
+    };
+
     if (!isAuthenticated) {
         return <Navigate to='/login' />
     } else {
         return <Outlet />
-    }
+    };
 }

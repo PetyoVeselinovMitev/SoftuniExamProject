@@ -9,6 +9,7 @@ import { useGetAllMoviesWithShowtimes } from '../../hooks/useMovies';
 export default function Program() {
     const [loading, setLoading] = useState(true);
     const [movies] = useGetAllMoviesWithShowtimes(setLoading);
+
     return (
         <div className="program">
             <h1>Make your reservation</h1>

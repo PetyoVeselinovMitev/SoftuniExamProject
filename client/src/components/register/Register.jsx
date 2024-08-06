@@ -1,8 +1,8 @@
+import './Register.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { useUserRegister } from '../../hooks/useAuth';
-import './Register.css';
-import { useForm } from '../../hooks/useForm';
 import { useState } from 'react';
+import { useForm } from '../../hooks/useForm';
 
 const initialValues = {
     name: '',
@@ -19,11 +19,15 @@ export default function Register() {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     const registerHandler = async ({ name, email, password, rePass }) => {
+        if (!name || !email || !password || !rePass) {
+            setError('All fields are required!');
+            return;
+        }
+        
         if (password.length < 6) {
             setError('Password must be at least 6 characters long!');
             return;
         }
-
         if (!emailRegex.test(email)) {
             setError('This does not look like an email.');
             return;

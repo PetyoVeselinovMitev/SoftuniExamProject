@@ -9,7 +9,7 @@ async function requester(method, url, data, accessToken, XAdmin) {
         options.headers = {
             'X-Admin': 'true'
         }
-    }
+    };
 
     if (accessToken) {
         options.headers = {
@@ -35,14 +35,11 @@ async function requester(method, url, data, accessToken, XAdmin) {
         if (!response.ok) {
             throw result;
         };
-        
+
         return result;
     } catch (error) {
         console.error(error.message);
-    }
-
-
-
+    };
 }
 
 export const get = requester.bind(null, 'GET');

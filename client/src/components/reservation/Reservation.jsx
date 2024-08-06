@@ -5,22 +5,23 @@ import { useContext, useState } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 
 const Reservation = () => {
-    const { accessToken } = useContext(AuthContext)
-    const navigate = useNavigate()
-    const [error, setError] = useState('');
     const rows = ['A', 'B', 'C', 'D', 'E', 'F'];
     const columns = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+
     const location = useLocation();
+    const navigate = useNavigate()
+
+    const { accessToken } = useContext(AuthContext)
+    const [error, setError] = useState('');
     const { movie, showtime } = location.state;
     const [takenSeats, setTakenSeats] = useState(showtime.seats)
     const [selectedSeats, setSelectedSeats] = useState([]);
-    const allSeats = takenSeats.concat(selectedSeats);
 
     const reservationSubmitHandler = async () => {
         if (selectedSeats.length === 0) {
             setError('Please select at least one seat');
             return;
-        }
+        };
 
         try {
             await usePostUserReservation({ movie, showtime, selectedSeats, takenSeats, accessToken })
@@ -28,11 +29,8 @@ const Reservation = () => {
         } catch (error) {
             setError(error.message);
             return;
-        }
-        
-        
-    }
-
+        };
+    };
 
     const handleSeatClick = (seat) => {
         if (selectedSeats.includes(seat)) {
