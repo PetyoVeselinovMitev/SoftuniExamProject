@@ -16,7 +16,7 @@ export default function Movie(movie) {
                 <img src={movie.movie[0].movie.imageUrl} />
             </div>
             <div className="movie-info">
-                <h3>{movie.movie[0].movie.title}</h3>
+                <h2>{movie.movie[0].movie.title}</h2>
                 <p>{movie.movie[0].movie.summary}</p>
                 <div className="movie-times">
                     {isAdmin

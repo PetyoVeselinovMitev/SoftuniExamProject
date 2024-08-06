@@ -1,5 +1,5 @@
 .header {
-    background-color: #d4d4d4;
+    background-color: #0a1720;
     padding: 20px 0
 }
 
@@ -16,13 +16,13 @@
 }
 
 .navbar .nav-links li a {
-    color: #4a4a4a;
+    color: #638c7e;
     text-decoration: none;
     font-size: 18px
 }
 
 .navbar .nav-links li a:hover {
-    color: #878787
+    color: #aad0c2
 }
 
 .navbar,
@@ -41,13 +41,13 @@
 
 .user-section span {
     margin-right: 10px;
-    color: #4a4a4a
+    color: #638c7e
 }
 
 .user-section li a {
     padding: 5px 10px;
-    background-color: #007bff;
-    color: #fff;
+    background-color: #638c7e;
+    color: #ffffff;
     border: 0;
     cursor: pointer;
     text-decoration: none;
@@ -55,7 +55,7 @@
 }
 
 .user-section li a:hover {
-    background-color: #0056b3
+    background-color: #94bcad
 }
 
 .navbar {

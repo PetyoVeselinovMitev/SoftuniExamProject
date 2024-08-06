@@ -54,29 +54,34 @@ const Reservation = () => {
     const isSeatTaken = (seat) => {
         return takenSeats.includes(seat);
     };
-    
+
     return (
         <div className="reservation-container">
             <div className="movie-card">
                 <img src={movie.imageUrl} className="movie-thumbnail" />
                 <div className="movie-info">
-                    <h3 className="movie-title">{movie.title}</h3>
+                    <h2 className="movie-title">{movie.title}</h2>
                     <p className="movie-summary">{movie.summary}</p>
                 </div>
                 <div className="legend-container">
-                <h2>Seat Legend</h2>
-                <div className="legend-item">
-                    <span className="seat legend-available"></span> Available
+                    <h2>Seat Legend</h2>
+                    <div className="legend-item">
+                        <span className="seat legend-selected"></span>
+                        <p>Selected</p>
+                    </div>
+                    <div className="legend-item">
+                        <span className="seat legend-available"></span>
+                        <p>Available</p>
+                    </div>
+                    <div className="legend-item">
+                        <span className="seat legend-reserved"></span>
+                        <p>Reserved</p>
+                    </div>
+                    
                 </div>
-                <div className="legend-item">
-                    <span className="seat legend-reserved"></span> Reserved
-                </div>
-                <div className="legend-item">
-                    <span className="seat legend-selected"></span> Selected
-                </div>
-            </div>
             </div>
             <div className="screen">Screen</div>
+            {error && <h2 className="error">{error}</h2>}
             <div className="seats-grid">
                 {rows.map((row) =>
                     columns.map((column) => {
@@ -89,15 +94,17 @@ const Reservation = () => {
                                 key={seat}
                                 onClick={() => !isTaken && handleSeatClick(seat)}
                             >
-                                {seat}
+                                <p>{seat}</p>
                             </div>
                         );
                     })
                 )}
             </div>
-            {error && <h2 className="error">{error}</h2>}
-            <button className="finish-reservation-btn" onClick={handleDeleteClick}>Finish Reservation</button>
-            <Link to={'/program'}><button className="finish-reservation-btn">Cancel</button></Link>
+            
+            <span>
+                <button className="finish-reservation-btn" onClick={handleDeleteClick}>Finish Reservation</button>
+                <Link to={'/program'}><button className="finish-reservation-btn">Cancel</button></Link>
+            </span>
             <ReservationModal
                 show={showModal}
                 onClose={handleCloseModal}

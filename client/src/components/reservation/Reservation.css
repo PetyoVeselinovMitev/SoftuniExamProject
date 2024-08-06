@@ -5,10 +5,21 @@
     padding: 20px
 }
 
+.movie-card img{
+    border: 3px solid #000
+}
+
+.error {
+    font-size: 20px;
+}
+
 .screen {
+    color: #a0c9bb;
+    max-width: 1153px;
+    margin-top: 50px;
     width: 80%;
     height: 50px;
-    background-color: #ddd;
+    background-color: #1c2b26;
     margin-bottom: 20px;
     text-align: center;
     line-height: 50px;
@@ -22,6 +33,8 @@
 }
 
 .movie-thumbnail {
+    margin-left: 25px;
+
     width: 200px;
     height: auto;
     margin-right: 20px;
@@ -39,6 +52,7 @@
 }
 
 .seat {
+    user-select: none;
     width: 60px;
     height: 60px;
     margin: 5px;
@@ -46,54 +60,67 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    background-color: #ccc;
+    background-color: #4e7b85;
     border-radius: 8px;
 }
 
 .seat.taken {
-    background-color: #e44f4f;
+    background-color: #1c2b26;
     cursor: default;
 }
 
 .seat.selected {
-    background-color: #4caf50;
+    background-color: #a0c9bb;
+    color: #4e7b85
 }
 
 .finish-reservation-btn {
+    margin: 10px;
     margin-top: 20px;
     padding: 10px 20px;
     font-size: 16px;
     color: #fff;
-    background-color: #007bff;
+    background-color: #638c7e;
     border: 0;
     border-radius: 5px;
     cursor: pointer
 }
 
 .finish-reservation-btn:hover {
-    background-color: #0056b3
+    background-color: #aad0c2
 }
 
 .legend-container {
     width: 300px;
-    padding-left: 20px;
     margin: auto;
+    margin-right: -50px;
+
 }
 
 .legend-item {
+    margin-left: 30px;
     display: flex;
     align-items: center;
     margin-bottom: 10px;
+    color: #22434a;
+    font-size: 18px;
+}
+
+.legend-item p {
+    margin-left: 10px;
 }
 
 .legend-available {
-    background-color: #ccc;
+    border: 2px solid #000;
+    background-color: #4e7b85;
 }
 
 .legend-reserved {
-    background-color: #e44f4f;
+    background-color: #1c2b26;
+    border: 2px solid #000;
 }
 
 .legend-selected {
-    background-color: #4caf50;
+    border: 2px solid #000;
+    background-color: #a0c9bb;
 }

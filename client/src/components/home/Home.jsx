@@ -5,6 +5,7 @@ import Spinner from '../spinner/Spinner';
 
 import { useGetRecentMovies } from '../../hooks/useMovies';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Home() {
     const [loading, setLoading] = useState(true);
@@ -23,6 +24,9 @@ export default function Home() {
                             <h2>There are no movies yet.</h2>
                         </div>
                 )}
+            </div>
+            <div className='button-container'>
+                <Link to='/program'><button className='program-btn'>Go to Program</button></Link>
             </div>
         </div>
     );

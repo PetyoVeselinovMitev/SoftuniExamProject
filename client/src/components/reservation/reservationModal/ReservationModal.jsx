@@ -1,11 +1,10 @@
-import React, { useEffect } from 'react';
 import './ReservationModal.css';
 
 export default function ReservationModal({ show, onClose, onConfirm, selectedSeats, movie, showtime }) {
     if (!show) {
         return null;
     };
-    
+
     return (
         <div className="modal-overlay">
             <div className="modal">
@@ -15,12 +14,14 @@ export default function ReservationModal({ show, onClose, onConfirm, selectedSea
                         <img src={movie.imageUrl} />
                     </div>
                     <div className="movie-info">
-                    <p>Are you sure you want to reserve <h4>{selectedSeats.join(', ')}</h4> seat/s for <h4>{movie.title}</h4> at {showtime.time}</p>
+                        <p>Are you sure you want to reserve <h4>{selectedSeats.join(', ')}</h4> seat/s for <h4>{movie.title}</h4> at {showtime.time}</p>
                     </div>
                 </div>
                 <div className="modal-actions">
-                    <button onClick={onClose}>Cancel</button>
-                    <button onClick={onConfirm}>Finish Reservation</button>
+                    <div className='button-container'>
+                        <button className='modal-btn' onClick={onConfirm}>Finish Reservation</button>
+                        <button className='modal-btn' onClick={onClose}>Cancel</button>
+                    </div>
                 </div>
             </div>
         </div>

@@ -6,7 +6,7 @@ export default function recentMovies({
     return (
         <div className="card">
             <img src={imageUrl} />
-            <h3>{title}</h3>
+            <h2>{title}</h2>
             <p>{summary}</p>
         </div>
     )

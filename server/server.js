@@ -1343,7 +1343,7 @@
             "35c62d76-8152-4626-8712-asdw7842dcwa": {
                 _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
                 movieId: "3987279d-0ad4-4afb-8ca9-5b256ae3b298",
-                movieTitle: "Insidious: The Last Key",
+                movieTittle: "Insidious: The Last Key",
                 movieImage: "https://m.media-amazon.com/images/M/MV5BOWFlNzViNWMtMjBlMS00NGNkLTk5ZTktNjExODQyYzEzZDBjXkEyXkFqcGdeQXVyMTA3MDk2NDg2._V1_.jpg",
                 showtimeId: "0a272c58-b7ea-4e09-a000-7ec988248f66",
                 showtime: "16:00",
@@ -1354,7 +1354,7 @@
             "35c62d76-8152-4626-8712-aks98120pzxsa": {
                 _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
                 movieId: "8f414b4f-ab39-4d36-bedb-2ad69da9c830",
-                movieTitle: "Tarrot",
+                movieTittle: "Tarrot",
                 movieImage: "https://m.media-amazon.com/images/M/MV5BODY0OTY1ZTktYTE4OC00MTFjLWE1YjAtZjMxNzk3MjYzMGJkXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX1000_.jpg",
                 showtimeId: "8a03aa56-7a82-4a6b-9821-920162sjwq23",
                 showtime: "21:00",
