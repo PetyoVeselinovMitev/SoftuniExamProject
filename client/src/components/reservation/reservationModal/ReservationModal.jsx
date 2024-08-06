@@ -5,11 +5,7 @@ export default function ReservationModal({ show, onClose, onConfirm, selectedSea
     if (!show) {
         return null;
     };
-
-    console.log(selectedSeats);
-    console.log(movie);
-    console.log(showtime);
-
+    
     return (
         <div className="modal-overlay">
             <div className="modal">
