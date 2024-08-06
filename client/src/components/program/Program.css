@@ -68,17 +68,14 @@ h1 {
 
 .program {
     display: flex;
-
     flex-direction: column;
-    margin-top: 150px;
     align-items: center;
     width: 76%;
 }
 
 .program-container {
-    display: flex;
+    display: flex;  
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Full viewport height */
     margin: 0;
 }

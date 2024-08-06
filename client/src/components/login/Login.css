@@ -70,3 +70,8 @@
 .login-form button:hover {
     background-color: #2e423b
 }
+
+.error {
+    text-align: center;
+    font-size: large;
+}
