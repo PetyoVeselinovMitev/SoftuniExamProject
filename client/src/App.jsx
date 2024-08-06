@@ -45,12 +45,12 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/program" element={<Program />} />
+                    <Route path="/logout" element={<Logout />} />
                     <Route element={<PublicViewRouteGuard />}>
                         <Route path="/login" element={<Login />} />
                         <Route path="/register" element={<Register />} />
                     </Route>
                     <Route element={<PrivateViewRouteGuard />}>
-                        <Route path="/logout" element={<Logout />} />
                         <Route path="/program/:movieId/:showtime" element={<Reservation />} />
                         <Route path="/user/reservations" element={<UserReservations />} />
                     </Route>
