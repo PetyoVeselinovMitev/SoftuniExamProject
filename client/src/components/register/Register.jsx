@@ -16,9 +16,16 @@ export default function Register() {
     const register = useUserRegister();
     const navigate = useNavigate();
 
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
     const registerHandler = async ({ name, email, password, rePass }) => {
         if (password.length < 6) {
             setError('Password must be at least 6 characters long!');
+            return;
+        }
+
+        if (!emailRegex.test(email)) {
+            setError('This does not look like an email.');
             return;
         }
 
