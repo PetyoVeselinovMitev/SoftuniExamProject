@@ -1,9 +1,11 @@
 .movie-table th {
-    background-color: #04aa6d;
-    color: #fff
+    background-color: #1c2b26;
+    padding: 8px;
+    color: #aad0c2
 }
 
 .admin-panel-wrapper {
+    margin-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,12 +16,27 @@
     max-width: 1600px;
 }
 
-.movie-table tr:nth-child(even) {
-    background-color: #f2f2f2
+.movie-table tr {
+    background-color: #638c7e;
+    color: #2e423b;
+    font-size: large;
 }
 
-.movie-table tr:hover {
-    background-color: #ddd
+.movie-table-button {
+    margin: 4px;
+    padding: 5px;
+    cursor: default;
+    background-color: #1c2b26;
+    border-radius: 5px;
+    font-size: 15px;
+    border: 0;
+    color: #aad0c2;
+}
+
+.movie-table a {
+    margin: 10px;
+    text-decoration: none;
+    color: #aad0c2;
 }
 
 .movie-thumbnail-panel{
@@ -36,9 +53,16 @@
 }
 
 .edit-btn {
-    background-color: #4caf50;
+    background-color: #78a496;
     color: #fff;
     border-radius: 5px;
+    width: 70px;
+    height: 35px;
+    margin-left: 20px
+}
+
+.edit-btn:hover {
+    background-color: #aad0c2
 }
 
 .table-padding{
@@ -46,10 +70,16 @@
 }
 
 .delete-btn {
-    background-color: #f44336;
+    background-color: #78a496;
     color: #fff;
     border-radius: 5px;
+    width: 70px;
+    height: 35px;
+    margin-right: 20px
+}
 
+.delete-btn:hover {
+    background-color: #aad0c2
 }
 
 .movie-table td {
@@ -76,10 +106,14 @@
     padding: 10px 0;
     font-size: 16px;
     color: #fff;
-    background-color: #4caf50;
+    background-color: #78a496;
     border: 0;
     cursor: pointer;
     border-radius: 5px
+}
+
+.add-movie-btn a:hover {
+    background-color: #aad0c2
 }
 
 .msg {

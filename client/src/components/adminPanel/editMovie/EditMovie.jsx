@@ -2,7 +2,7 @@ import './EditMovie.css';
 import { useContext, useState } from 'react';
 import { useForm } from '../../../hooks/useForm';
 import { useGetOneMovie } from '../../../hooks/useMovies';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthContext';
 import Spinner from '../../spinner/Spinner';
 import moviesAPI from '../../../api/moviesApi';
@@ -47,53 +47,54 @@ export default function EditMovie() {
     } else {
 
         return (
-            <form className="create-movie-form" onSubmit={submitHandler} >
-                <label htmlFor="title">Title:</label>
-                <input
-                    type="text"
-                    id="title"
-                    name="title"
-                    onChange={changeHandler}
-                    value={values.title || ''}
-                />
+            <div className='edit-container'>
+                <form className="edit-form" onSubmit={submitHandler} >
+                    <label htmlFor="title">Title:</label>
+                    <input
+                        type="text"
+                        id="title"
+                        name="title"
+                        onChange={changeHandler}
+                        value={values.title || ''}
+                    />
 
-                <label htmlFor="summary">Summary:</label>
-                <textarea
-                    id="summary"
-                    name="summary"
-                    onChange={changeHandler}
-                    value={values.summary || ''}
-                />
+                    <label htmlFor="summary">Summary:</label>
+                    <textarea
+                        id="summary"
+                        name="summary"
+                        onChange={changeHandler}
+                        value={values.summary || ''}
+                    />
 
-                <label htmlFor="imageUrl">Image URL:</label>
-                <input
-                    type="text"
-                    id="imageUrl"
-                    name="imageUrl"
-                    onChange={changeHandler}
-                    value={values.imageUrl || ''}
-                />
+                    <label htmlFor="imageUrl">Image URL:</label>
+                    <input
+                        type="text"
+                        id="imageUrl"
+                        name="imageUrl"
+                        onChange={changeHandler}
+                        value={values.imageUrl || ''}
+                    />
 
-                <label htmlFor="showtime">Showtimes: </label>
-                <input
-                    type="text"
-                    id="showtimes"
-                    name="showtimes"
-                    placeholder='23:59, 23:59, 23:59'
-                    onChange={changeHandler}
-                    value={values.showtimes || []}
-                />
-                {error && (
-                    <p className='error'>
-                        <span>{error}</span>
-                    </p>
-                )}
-
-
-
-
-                <button type="submit">Save Movie</button>
-            </form>
+                    <label htmlFor="showtime">Showtimes: </label>
+                    <input
+                        type="text"
+                        id="showtimes"
+                        name="showtimes"
+                        placeholder='23:59, 23:59, 23:59'
+                        onChange={changeHandler}
+                        value={values.showtimes || []}
+                    />
+                    {error && (
+                        <p className='error'>
+                            <span>{error}</span>
+                        </p>
+                    )}
+                    <div className='btn-container'>
+                        <Link><button className='btn' type="submit">Save Movie</button></Link>
+                        <Link to={'/admin'}><button className='btn'>Cancel</button></Link>
+                    </div>
+                </form>
+            </div>
         );
     };
 }
