@@ -1375,7 +1375,7 @@
             "8f414b4f-ab39-4d36-bedb-2ad69da9c830": {
                 _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
                 title: "Tarot",
-                imageUrl: "https://m.media-amazon.com/images/M/MV5BODY0OTY1ZTktYTE4OC00MTFjLWE1YjAtZjMxNzk3MjYzMGJkXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX1000_.jpg",
+                imageUrl: "https://m.media-amazon.com/images/M/MV5BZGYzYjQ3ZWItMGJlZC00YzAxLTgzMTItYzI5MjY2YjA4Mjk5XkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_.jpg",
                 summary: "Friends unwittingly unleash an unspeakable evil trapped within a cursed deck of tarot cards. One by one, they come face to face with fate, racing against death to escape the future foretold in their readings.",
                 _createdOn: 1613551279013,
                 _id: "8f414b4f-ab39-4d36-bedb-2ad69da9c830"
