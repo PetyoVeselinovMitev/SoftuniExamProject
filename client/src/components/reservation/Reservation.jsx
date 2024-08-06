@@ -3,6 +3,7 @@ import './Reservation.css';
 import { usePostUserReservation } from '../../hooks/useReservations';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
+import ReservationModal from './reservationModal/ReservationModal';
 
 const Reservation = () => {
     const rows = ['A', 'B', 'C', 'D', 'E', 'F'];
@@ -16,16 +17,25 @@ const Reservation = () => {
     const { movie, showtime } = location.state;
     const [takenSeats, setTakenSeats] = useState(showtime.seats)
     const [selectedSeats, setSelectedSeats] = useState([]);
+    const [showModal, setShowModal] = useState(false);
 
-    const reservationSubmitHandler = async () => {
+    const handleDeleteClick = () => {
         if (selectedSeats.length === 0) {
             setError('Please select at least one seat');
             return;
         };
+        setShowModal(true);
+    };
 
+    const handleCloseModal = () => {
+        setShowModal(false);
+    };
+
+    const reservationSubmitHandler = async () => {
         try {
             await usePostUserReservation({ movie, showtime, selectedSeats, takenSeats, accessToken })
             navigate('/user/reservations')
+            handleCloseModal();
         } catch (error) {
             setError(error.message);
             return;
@@ -38,12 +48,13 @@ const Reservation = () => {
         } else {
             setSelectedSeats([...selectedSeats, seat]);
         }
+        setError('');
     };
 
     const isSeatTaken = (seat) => {
         return takenSeats.includes(seat);
     };
-
+    
     return (
         <div className="reservation-container">
             <div className="movie-card">
@@ -85,8 +96,16 @@ const Reservation = () => {
                 )}
             </div>
             {error && <h2 className="error">{error}</h2>}
-            <button className="finish-reservation-btn" onClick={reservationSubmitHandler}>Finish Reservation</button>
+            <button className="finish-reservation-btn" onClick={handleDeleteClick}>Finish Reservation</button>
             <Link to={'/program'}><button className="finish-reservation-btn">Cancel</button></Link>
+            <ReservationModal
+                show={showModal}
+                onClose={handleCloseModal}
+                onConfirm={() => reservationSubmitHandler()}
+                selectedSeats={selectedSeats}
+                movie={movie}
+                showtime={showtime}
+            />
         </div>
     );
 };
