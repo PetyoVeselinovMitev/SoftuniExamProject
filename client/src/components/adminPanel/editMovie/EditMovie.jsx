@@ -90,7 +90,7 @@ export default function EditMovie() {
                         </p>
                     )}
                     <div className='btn-container'>
-                        <Link><button className='btn' type="submit">Save Movie</button></Link>
+                        <button className='btn' type="submit">Save Movie</button>
                         <Link to={'/admin'}><button className='btn'>Cancel</button></Link>
                     </div>
                 </form>

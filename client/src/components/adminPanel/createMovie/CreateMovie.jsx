@@ -96,7 +96,7 @@ export default function CreateMovie() {
                     </p>
                 )}
                 <div className='btn-container'>
-                    <Link><button type="submit">Add Movie</button></Link>
+                    <button type="submit">Add Movie</button>
                     <Link to={'/admin'}><button>Cancel</button></Link>
                 </div>
             </form>
