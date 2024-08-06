@@ -18,7 +18,7 @@ async function requester(method, url, data, accessToken, XAdmin) {
     };
 
     if (data) {
-        if(options.headers) {
+        if (options.headers) {
             options.headers['Content-Type'] = 'application/json';
         } else {
             options.headers = {
@@ -28,15 +28,21 @@ async function requester(method, url, data, accessToken, XAdmin) {
         options.body = JSON.stringify(data);
     };
 
-    const response = await fetch(url, options);
-    const result = await response.json();
+    try {
+        const response = await fetch(url, options);
+        const result = await response.json();
 
-    if (!response.ok) {
-        throw result;
-    };
+        if (!response.ok) {
+            throw result;
+        };
+        
+        return result;
+    } catch (error) {
+        console.error(error.message);
+    }
 
 
-    return result;
+
 }
 
 export const get = requester.bind(null, 'GET');
