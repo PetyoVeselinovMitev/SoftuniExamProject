@@ -41,7 +41,7 @@ export default function Login() {
     return (
         <div className="login-container">
             <form className="login-form" onSubmit={submitHandler}>
-                <h1>login</h1>
+                <h1>Login</h1>
                 <label htmlFor="email">Email</label>
                 <input
                     type="text"
