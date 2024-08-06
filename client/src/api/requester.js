@@ -28,18 +28,18 @@ async function requester(method, url, data, accessToken, XAdmin) {
         options.body = JSON.stringify(data);
     };
 
-    try {
-        const response = await fetch(url, options);
-        const result = await response.json();
+    const response = await fetch(url, options);
+    const result = await response.json();
 
-        if (!response.ok) {
-            throw result;
-        };
+    if (response.code === 409) {
+        throw result;
+    }
 
-        return result;
-    } catch (error) {
-        console.error(error.message);
+    if (!response.ok) {
+        throw result;
     };
+
+    return result;
 }
 
 export const get = requester.bind(null, 'GET');

@@ -23,7 +23,7 @@ export default function Register() {
             setError('All fields are required!');
             return;
         }
-        
+
         if (password.length < 6) {
             setError('Password must be at least 6 characters long!');
             return;
@@ -40,11 +40,12 @@ export default function Register() {
 
         try {
             await register(name, email, password);
-            navigate('/');
         } catch (error) {
             setError(error.message);
-            console.error(error.message);
+            return;
         }
+
+        navigate('/');
     };
 
     const { values, changeHandler, submitHandler } = useForm(initialValues, registerHandler);
