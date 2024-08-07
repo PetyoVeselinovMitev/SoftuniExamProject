@@ -12,6 +12,7 @@ const Header = () => {
 				<ul className="nav-links">
 					<li><Link to="/">Home</Link></li>
 					<li><Link to="/program">Program</Link></li>
+					<li><Link to="/about">About Us</Link></li>
 					{!isAuthenticated
 						&& (
 							<>

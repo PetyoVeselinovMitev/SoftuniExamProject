@@ -16,6 +16,7 @@ import EditMovie from "./components/adminPanel/editMovie/EditMovie";
 import PrivateViewRouteGuard from "./components/common/PrivateViewRouteGuard";
 import AdminViewRouteGuard from "./components/common/AdminViewRouteGuard";
 import PublicViewRouteGuard from "./components/common/PublicViewRouteGuard";
+import AboutUs from "./components/aboutUs/AboutUs";
 
 function App() {
     const [authState, setAuthState] = useState({});
@@ -45,6 +46,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/program" element={<Program />} />
+                    <Route path="/about" element={<AboutUs />} />
                     <Route path="/logout" element={<Logout />} />
                     <Route element={<PublicViewRouteGuard />}>
                         <Route path="/login" element={<Login />} />
