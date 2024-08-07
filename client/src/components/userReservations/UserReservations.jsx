@@ -15,7 +15,9 @@ export default function UserReservations() {
                 {userReservations.length === 0
                     ? <div className='msg'>
                         <h2>You don't have any reservations.</h2>
-                        <h3>Go to the <Link to="/program">Program</Link> to make a reservation.</h3>
+                        <div className='button-container'>
+                            <Link to='/program'><button className='program-btn'>Go to Program</button></Link>
+                        </div>
                     </div>
                     : userReservations.map(reservation => {
                         return (

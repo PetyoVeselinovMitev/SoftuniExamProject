@@ -49,3 +49,25 @@
     text-align: center;
     margin: 20px 0;
 }
+
+.program-btn {
+    margin: 10px;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #638c7e;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.program-btn:hover {
+    background-color: #aad0c2
+}
