@@ -15,13 +15,13 @@ export default function Login() {
 
     const loginHandler = async ({ email, password }) => {
 
+        if (!email || !password) {
+            setError('All fields are required.');
+            return;
+        }   
+
         if (!emailRegex.test(email)) {
             setError('This does not look like an email.');
-            return;
-        }
-
-        if (!password) {
-            setError('Password is required.');
             return;
         }
 
