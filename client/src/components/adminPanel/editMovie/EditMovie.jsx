@@ -1,11 +1,10 @@
 import './EditMovie.css';
 import { useContext, useState } from 'react';
 import { useForm } from '../../../hooks/useForm';
-import { useGetOneMovie } from '../../../hooks/useMovies';
+import { useGetOneMovie, useUpdateMovieWithShowTimes } from '../../../hooks/useMovies';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthContext';
 import Spinner from '../../spinner/Spinner';
-import moviesAPI from '../../../api/moviesApi';
 
 export default function EditMovie() {
     const [isLoading, setIsLoading] = useState(true);
@@ -32,7 +31,7 @@ export default function EditMovie() {
         }
 
         try {
-            await moviesAPI.updateMovieWithShowTimes(accessToken, movieId, title, summary, imageUrl, showtimes);
+            await useUpdateMovieWithShowTimes(accessToken, movieId, title, summary, imageUrl, showtimes);
             values.showtimes = [];
             navigate('/admin');
         } catch (error) {

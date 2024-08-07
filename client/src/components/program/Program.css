@@ -24,6 +24,7 @@ div.movie-card {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    font-size: large;
 }
 
 .movie-times {
@@ -36,7 +37,7 @@ div.movie-card {
     cursor: pointer;
     background-color: #1c2b26;
     border-radius: 5px;
-    font-size: 15px;
+    font-size: 18px;
     border: 0;
     color: #aad0c2;
     ;   

@@ -53,8 +53,8 @@ export async function usePostNewMovie(title, summary, imageUrl, showtimes, acces
     await moviesAPI.postNewMovie(title, summary, imageUrl, showtimes, accessToken);
 }
 
-export function useUpdateMovieWithShowTimes(accessToken, movieId, title, summary, imageUrl, showtimes) {
-    moviesAPI.updateMovieWithShowTimes(accessToken, movieId, title, summary, imageUrl, showtimes);
+export async function useUpdateMovieWithShowTimes(accessToken, movieId, title, summary, imageUrl, showtimes) {
+    await moviesAPI.updateMovieWithShowTimes(accessToken, movieId, title, summary, imageUrl, showtimes);
 }
 
 export function useGetOneShowtime(showtimeId) {

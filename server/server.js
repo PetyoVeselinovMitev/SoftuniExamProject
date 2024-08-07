@@ -1355,7 +1355,7 @@
                 _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
                 movieId: "8f414b4f-ab39-4d36-bedb-2ad69da9c830",
                 movieTittle: "Tarrot",
-                movieImage: "https://m.media-amazon.com/images/M/MV5BODY0OTY1ZTktYTE4OC00MTFjLWE1YjAtZjMxNzk3MjYzMGJkXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX1000_.jpg",
+                movieImage: "https://m.media-amazon.com/images/M/MV5BZGYzYjQ3ZWItMGJlZC00YzAxLTgzMTItYzI5MjY2YjA4Mjk5XkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_.jpg",
                 showtimeId: "8a03aa56-7a82-4a6b-9821-920162sjwq23",
                 showtime: "21:00",
                 seats: ["B1", "B2"],
